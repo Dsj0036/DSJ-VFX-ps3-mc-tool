@@ -1,0 +1,309 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3A628C52-65DA-4430-804B-8097C12F5AF3}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Destrin_Visual_Tool</RootNamespace>
+    <AssemblyName>Destrin Visual Tool</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AForge, Version=2.2.5.0, Culture=neutral, PublicKeyToken=c1db6ff4eaa06aeb, processorArchitecture=MSIL">
+      <HintPath>..\packages\AForge.2.2.5\lib\AForge.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Video, Version=2.2.5.0, Culture=neutral, PublicKeyToken=cbfb6e07d173c401, processorArchitecture=MSIL">
+      <HintPath>..\packages\AForge.Video.2.2.5\lib\AForge.Video.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Video.DirectShow, Version=2.2.5.0, Culture=neutral, PublicKeyToken=61ea4348d43881b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\AForge.Video.DirectShow.2.2.5\lib\AForge.Video.DirectShow.dll</HintPath>
+    </Reference>
+    <Reference Include="DiscordRPC, Version=1.0.175.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DiscordRichPresence.1.0.175\lib\net35\DiscordRPC.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialSkin">
+      <HintPath>..\..\..\..\Desktop\MaterialSkin.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework, Version=1.3.5.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Desktop\Carpeta\Stuffs Making RTM\MetroFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework.Design, Version=1.3.5.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Desktop\Carpeta\Stuffs Making RTM\MetroFramework.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework.Fonts, Version=1.3.5.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Desktop\Carpeta\Stuffs Making RTM\MetroFramework.Fonts.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Messaging" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AdditionalForms\addit_mods.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdditionalForms\addit_mods.Designer.cs" />
+    <Compile Include="AdditionalForms\AttachToProcessConfirmForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdditionalForms\AttachToProcessConfirmForm.Designer.cs" />
+    <Compile Include="AdditionalForms\ConnectForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdditionalForms\ConnectForm.Designer.cs" />
+    <Compile Include="AdditionalForms\FOV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdditionalForms\FOV.Designer.cs" />
+    <Compile Include="AdditionalForms\ManyThanks.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdditionalForms\ManyThanks.Designer.cs" />
+    <Compile Include="Ded\apis\PS3Lib\ArrayBuilder.cs" />
+    <Compile Include="Ded\apis\PS3Lib\CCAPI.cs" />
+    <Compile Include="Ded\apis\PS3Lib\ConsoleList.cs" />
+    <Compile Include="Ded\apis\PS3Lib\EndianType.cs" />
+    <Compile Include="Ded\apis\PS3Lib\Extension.cs" />
+    <Compile Include="Ded\apis\PS3Lib\NET\PS3TMAPI.cs" />
+    <Compile Include="Ded\apis\PS3Lib\PS3API.cs" />
+    <Compile Include="Ded\apis\PS3Lib\PS3M_API.cs" />
+    <Compile Include="Ded\apis\PS3Lib\SelectAPI.cs" />
+    <Compile Include="Ded\apis\PS3Lib\TMAPI.cs" />
+    <Compile Include="Ded\apis\PS3ManagerAPI\AttachDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ded\apis\PS3ManagerAPI\ConnectDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ded\apis\PS3ManagerAPI\LogDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ded\apis\PS3ManagerAPI\PS3MAPI.cs" />
+    <Compile Include="Ded\apis\RPC\RPC.cs" />
+    <Compile Include="Ded\debug\debugloader.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ded\debug\debugloader.Designer.cs">
+      <DependentUpon>debugloader.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ded\debug\Debug_Connection_Test.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ded\debug\Debug_Connection_Test.Designer.cs">
+      <DependentUpon>Debug_Connection_Test.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ded\forms\acc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ded\forms\acc.Designer.cs">
+      <DependentUpon>acc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ded\forms\att_process_dialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ded\forms\att_process_dialog.Designer.cs">
+      <DependentUpon>att_process_dialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ded\forms\capturecard_viewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ded\forms\capturecard_viewer.Designer.cs">
+      <DependentUpon>capturecard_viewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ded\forms\MatchRich.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ded\forms\MatchRich.Designer.cs">
+      <DependentUpon>MatchRich.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ded\forms\Mods.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ded\forms\Mods.Designer.cs">
+      <DependentUpon>Mods.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ded\forms\mus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ded\forms\mus.Designer.cs">
+      <DependentUpon>mus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ded\forms\PS3-Sender-AddOn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ded\forms\PS3-Sender-AddOn.Designer.cs">
+      <DependentUpon>PS3-Sender-AddOn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ded\forms\ps3message.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ded\forms\ps3message.Designer.cs">
+      <DependentUpon>ps3message.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ded\forms\settings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ded\forms\settings.Designer.cs">
+      <DependentUpon>settings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ded\oldver\Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ded\oldver\Main.Designer.cs" />
+    <Compile Include="MainSplash.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainSplash.Designer.cs">
+      <DependentUpon>MainSplash.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AdditionalForms\addit_mods.resx" />
+    <EmbeddedResource Include="AdditionalForms\AttachToProcessConfirmForm.resx" />
+    <EmbeddedResource Include="AdditionalForms\ConnectForm.resx" />
+    <EmbeddedResource Include="AdditionalForms\FOV.resx" />
+    <EmbeddedResource Include="AdditionalForms\ManyThanks.resx" />
+    <EmbeddedResource Include="Ded\apis\PS3ManagerAPI\AttachDialog.resx" />
+    <EmbeddedResource Include="Ded\apis\PS3ManagerAPI\ConnectDialog.resx" />
+    <EmbeddedResource Include="Ded\apis\PS3ManagerAPI\LogDialog.resx" />
+    <EmbeddedResource Include="Ded\debug\debugloader.resx">
+      <DependentUpon>debugloader.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ded\debug\Debug_Connection_Test.resx">
+      <DependentUpon>Debug_Connection_Test.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ded\forms\acc.resx">
+      <DependentUpon>acc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ded\forms\att_process_dialog.resx">
+      <DependentUpon>att_process_dialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ded\forms\capturecard_viewer.resx">
+      <DependentUpon>capturecard_viewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ded\forms\MatchRich.resx">
+      <DependentUpon>MatchRich.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ded\forms\Mods.resx">
+      <DependentUpon>Mods.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ded\forms\mus.resx">
+      <DependentUpon>mus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ded\forms\PS3-Sender-AddOn.resx">
+      <DependentUpon>PS3-Sender-AddOn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ded\forms\ps3message.resx">
+      <DependentUpon>ps3message.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ded\forms\settings.resx">
+      <DependentUpon>settings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ded\oldver\Main.resx" />
+    <EmbeddedResource Include="MainSplash.resx">
+      <DependentUpon>MainSplash.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\skinGraphicsInGame_208.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\skinGraphicsInGame_129.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\skinGraphicsInGame_41.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\skinGraphicsInGame_1291.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\852901993155657779.jpeg" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\WIFIICO.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\attach.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AdditionalForms\CodigoBasura.xml" />
+    <Content Include="Ded\MaterialSkin.dll" />
+    <Content Include="Ded\Minecraft Code.xml" />
+    <Content Include="Ded\Minecraft Offsets.xml" />
+    <Content Include="MetroFramework\MetroFramework.Design.dll" />
+    <Content Include="MetroFramework\MetroFramework.dll" />
+    <Content Include="MetroFramework\MetroFramework.Fonts.dll" />
+    <None Include="Resources\ps3-stick.jpeg" />
+    <None Include="Resources\SurvivalIcon.png" />
+    <None Include="Resources\MG03icon.png" />
+    <None Include="Resources\MG02icon.png" />
+    <None Include="Resources\CreativeIcon.png" />
+    <None Include="Resources\CreateWorldIcon.png" />
+    <None Include="Resources\BattleModeIcon.png" />
+    <None Include="Resources\ssetting.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

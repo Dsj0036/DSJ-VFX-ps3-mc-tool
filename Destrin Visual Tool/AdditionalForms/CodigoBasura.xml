@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<text>
+	private void checkBox3_CheckedChanged(object sender, EventArgs e)
+	{
+	///Atmósfera Mejorada
+	byte[] On = { 0x0F };
+	byte[] Off = { 0x3F };
+	PS3.SetMemory(0x00A9A6DC, checkBox3.Checked ? On : Off);
+	PS3M_API.PS3.Notify("AFMÓSFERA MEJORADA");
+	}
+
+	private void checkBox1_CheckedChanged(object sender, EventArgs e)
+	{
+	///Auto Save
+	byte[] On = { 0x40 };
+	byte[] Off = { 0x41 };
+	PS3.SetMemory(0x00AEEE54, checkBox1.Checked ? On : Off);
+	PS3M_API.PS3.Notify("AUTO SALVADO");
+	}
+
+	private void checkBox2_CheckedChanged(object sender, EventArgs e)
+	{
+	//Correr Agachado
+	byte[] On = { 0x01 };
+	byte[] Off = { 0x00 };
+	PS3.SetMemory(0x00B0142B, checkBox2.Checked ? On : Off);
+	PS3M_API.PS3.Notify("CORRER AGACHADO");
+	}
+
+	private void checkBox5_CheckedChanged(object sender, EventArgs e)
+	{ ///Desactivar efecto hurto al herir el jugador
+	byte[] On = { 0x00, 0x00 };
+	byte[] Off = { 0x40, 0x49 };
+	PS3.SetMemory(0x00A972B0, checkBox5.Checked ? On : Off);
+	PS3M_API.PS3.Notify("SIN SHAKE DE HURTO");
+	}
+
+	private void checkBox7_CheckedChanged_1(object sender, EventArgs e)
+	{///Anti jugadores no invitados
+	byte[] On = { 0x01 };
+	byte[] Off = { 0x00 };
+	PS3.SetMemory(0x0098871F, checkBox7.Checked ? On : Off);
+	PS3M_API.PS3.Notify("PARTIDA SOLITARIA");
+	}
+
+	private void checkBox8_CheckedChanged(object sender, EventArgs e)
+	{
+	byte[] On = { 0x41 };///LOCK GAMEMODE
+	byte[] Off = { 0x40 };
+	PS3.SetMemory(0x002F03D0, checkBox8.Checked ? On : Off);
+	PS3M_API.PS3.Notify("BLOQUEAR MODO DE JUEGO");
+	}
+	}
+	}
+	//ENDING SNAPSHOT 1.0
+
+	TRASH:
+	PS3M_API.ConnectTarget(ipcon.Text, Convert.ToInt32(7887));
+	{
+	try
+	{
+	this.AttachMethod.Items.Clear();
+	foreach (uint num in PS3M_API.Process.GetPidProcesses())
+	{
+	if (num == 0u)
+	{
+	break;
+	}
+	this.AttachMethod.Items.Add(PS3M_API.Process.GetName(num));
+	}
+	this.AttachMethod.SelectedIndex = 0;
+	}
+	catch (Exception ex)
+	{
+	MessageBox.Show(ex.Message, "Se ha producido un error (00x1).", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+	}
+	}
+
+	private void AttachMethod_SelectedIndexChanged(object sender, EventArgs e)
+	{
+	PS3.ChangeAPI(SelectAPI.PS3Manager);
+	if (!PS3M_API.AttachProcess(PS3M_API.Process.Processes_Pid[this.AttachMethod.SelectedIndex]))
+	{
+
+	int num = (int)MessageBox.Show("No se pudo vincular (00x2)", "Error.", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+	PS3M_API.DisconnectTarget();
+	}
+	PS3M_API.PS3.Notify("DEDITION RTM CONECTADO.");
+	MessageBox.Show("¡Conectado Satisfactoriamente!");
+
+
+	}
+
+
+
+
+	///            PS3.ChangeAPI(SelectAPI.PS3Manager);
+	///            if (!PS3M_API.AttachProcess(PS3M_API.Process.Processes_Pid[this.AttachMethod.SelectedIndex]))
+	///            {
+
+	int num = (int)MessageBox.Show("Unable To Attach", "Error.", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+	PS3M_API.DisconnectTarget();
+	}
+	PS3M_API.PS3.Notify("¡DEPR 4.0 Vinculado al juego!");
+	MessageBox.Show("Welcome", PS3.Extension.ReadString(40633944U));
+
+</text>
