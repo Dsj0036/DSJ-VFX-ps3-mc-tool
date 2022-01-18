@@ -78,6 +78,31 @@ namespace Destrin_Visual_Tool.Ded.forms
            ///Form1 Main = new Form1();
            ///Main.ShowDialog();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            {
+
+                try
+                {
+                    this.ProcessList.Items.Clear();
+                    foreach (uint num in PS3M_API.Process.GetPidProcesses())
+                    {
+                        if (num == 0u)
+                        {
+                            break;
+                        }
+                        this.ProcessList.Items.Add(PS3M_API.Process.GetName(num));
+                    }
+                    this.ProcessList.SelectedIndex = 0;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Se produjo una excepción al conseguir los PID de procesos de la consola", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                    DialogResult = DialogResult.Cancel;
+                }
+            }
+        }
     }
 }
 

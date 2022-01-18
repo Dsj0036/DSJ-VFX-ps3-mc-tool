@@ -38,6 +38,7 @@ namespace Destrin_Visual_Tool.Ded.forms
             VideoCaptureDevice = new VideoCaptureDevice();
             button1.Hide();
             sdown_button.Enabled = false;
+            
 
 
             initalized = true;
@@ -97,6 +98,7 @@ namespace Destrin_Visual_Tool.Ded.forms
 
         private void toolStripButton1_Click_1(object sender, EventArgs e)
         {
+          
             VideoCaptureDevice = new VideoCaptureDevice(filterInfoCollection[toolStripComboBox1.SelectedIndex].MonikerString);
             VideoCaptureDevice.NewFrame += VideoCaptureDevice_NewFrame;
             VideoCaptureDevice.Start();
@@ -135,6 +137,27 @@ namespace Destrin_Visual_Tool.Ded.forms
 
         private void label2_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void toolStripButton1_Click_2(object sender, EventArgs e)
+        {
+            Mods md = new Mods();
+            capturecard_viewer ccv = new capturecard_viewer();
+            md.ShowDialog();
+            md.BringToFront();
+            md.Activate();
+
+           
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            forms.Mods md = new forms.Mods();
+            
+            md.BringToFront();
+            md.Activate();
+            md.Focus();
 
         }
     }

@@ -12,6 +12,9 @@ using PS3ManagerAPI;
 using DiscordRPC;
 using DiscordRPC.Logging;
 using MaterialSkin;
+using AForge;
+using AForge.Video;
+using AForge.Video.DirectShow;
 
 
 namespace Destrin_Visual_Tool.Ded.forms
@@ -33,15 +36,55 @@ namespace Destrin_Visual_Tool.Ded.forms
         bool initalized = false;
         private void Mods_Load(object sender, EventArgs e)
         {
+           
             if (PS3M_API.IsConnected == false)
             {
+                #region Default Event
+                con_label.Text = "Not connected";
                 desconectarToolStripMenuItem.Enabled = false;
+                this.pictureBox1.Image = global::Destrin_Visual_Tool.Properties.Resources.skinGraphicsInGame_141;
+                #endregion
+
+                #region custom notification 
+                ntw.Visible = true;
+                ntw.Icon = SystemIcons.Information;
+                ntw.BalloonTipTitle = "PS3 Manager API";
+
+                ntw.BalloonTipText = "No se conectó a ninguna consola. Las modificaciones no estan disponibles.";
+                ntw.Text = "Con_text";
+                ntw.ShowBalloonTip(500);
+                #endregion
+
+                #region Mods
+                {
+                    fov_.Enabled = false;
+                    fov_.Visible = false;
+                    mods_groupbox.Hide();
+                    mess_box.Visible = true;
+                    mess_box.Enabled = true;
+                    mess_box.BringToFront();
+                }
+                #endregion
             }
             else if (PS3M_API.IsConnected == true)
             {
-                desconectarToolStripMenuItem.Enabled = true; 
+                con_label.Text = "Connected";
+                desconectarToolStripMenuItem.Enabled = true;
+                this.pictureBox1.Image = global::Destrin_Visual_Tool.Properties.Resources.skinGraphicsInGame_1291;
+                ntw.Visible = false;
+                ntw.Icon = SystemIcons.Information;
+                ntw.BalloonTipTitle = "PS3 Manager API";
+                ntw.BalloonTipText = "Se conecto y vinculó correctamente.";
+                ntw.Text = "Con_text";
+                ntw.ShowBalloonTip(500);
+                mess_box.Hide();
+                loc.Text = PS3M_API.Log;
+                fov_.Enabled = true;
+                loc.Enabled = true;
+                
+
             }
-           /// if (PS3M_API.IsConnected == false)
+            else if (PS3M_API.IsConnected == false)
             {
                 try
                 {
@@ -69,11 +112,11 @@ namespace Destrin_Visual_Tool.Ded.forms
                 {
                     MessageBox.Show("Se produjo un error al iniciar la RPC de Discord", "Error", MessageBoxButtons.RetryCancel);
                 }
+            
             }
-            #region nombres
+            
             functions_timer.Start();
-            this.materialCheckbox3.Text = " H - Entidades No Desaparecen (FEC)";
-            #endregion
+
         }
         int i = 1;
         private void timer1_Tick(object sender, EventArgs e)
@@ -85,7 +128,7 @@ namespace Destrin_Visual_Tool.Ded.forms
 
         private void materialSlider1_Click(object sender, EventArgs e)
         {
-
+           
         }
         private void materialSlider1_Scroll(object sender, EventArgs e)
         {
@@ -116,8 +159,10 @@ namespace Destrin_Visual_Tool.Ded.forms
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
             /// Conecction Form
-            Form1 Con_diag = new Form1();
-            Con_diag.ShowDialog();
+            ///   DialogResult = DialogResult.OK;
+            ///   Form1 Con_diag = new Form1();
+            ///   Con_diag.ShowDialog();
+            Application.Restart(); Environment.Exit(0);
         }
 
         private void youTubeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -132,18 +177,25 @@ namespace Destrin_Visual_Tool.Ded.forms
 
         private void revincularToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DialogResult = DialogResult.OK;
-            {
-                Ded.forms.att_process_dialog attscr = new att_process_dialog();
-                attscr.ShowDialog();
-            }
+            this.Close();
+            
         }
 
         private void desconectarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            PS3M_API.DisconnectTarget();
-            desconectarToolStripMenuItem.Enabled = false;
-
+            try
+            {
+                PS3M_API.DisconnectTarget();
+                desconectarToolStripMenuItem.Enabled = false;
+                ntw.Icon = SystemIcons.Information;
+                ntw.Text = "Destrin Visual Tool";
+                ntw.BalloonTipText = "Desconectado correctamente";
+                ntw.BalloonTipTitle = "Conexión";
+            }
+            catch
+            {
+                MessageBox.Show("Se produjo una excepción. No se desconectó.");
+            }
         }
 
         private void materialCheckbox5_CheckedChanged(object sender, EventArgs e)
@@ -561,7 +613,7 @@ namespace Destrin_Visual_Tool.Ded.forms
             progressBar1.Value = 0;
             this.progressBar1.Value = 100;
             capturecard_viewer ccv = new capturecard_viewer();
-            ccv.ShowDialog();
+            ccv.Show();
         }
 
         private void notificacionALaConsolaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -639,6 +691,11 @@ namespace Destrin_Visual_Tool.Ded.forms
                     label1.Text = "Inyectando: " + this.materialCheckbox11.Text;
                 }
 
+                //
+                byte[] On = { 0x40 };
+                byte[] Off = { 0x41 };
+                PS3.SetMemory(0x00245E58, materialCheckbox9.Checked ? On : Off);
+                //
             }
 
             this.progressBar1.Value = 100;
@@ -661,109 +718,13 @@ namespace Destrin_Visual_Tool.Ded.forms
             this.progressBar1.Value = 100;
         }
 
-        private void materialSlider1_Scroll_1(object sender, EventArgs e)
+        private void materialSlider1_Click_1(object sender, EventArgs e)
         {
-            //// VALUES ///
-            #region reset
-            if (materialSlider1.Value == 1)
-            {
-                progressBar1.Value = 0;
-
-                progressBar1.Value = 1;
-                #region Estado
-                {
-                    if (progressBar1.Value == 1)
-                    {
-                        label1.Text = "Reiniciando: FOV";
-                    }
-
-                }
-                #endregion
-                this.progressBar1.Value = 100;
-                byte[] A = { 0x3F, 0x80 }; ///RESET///
-                byte[] B = { 0x3F, 0x80 };
-                PS3.SetMemory(0x014C670C, materialCheckbox13.Checked ? A : B);
-                this.progressBar1.Value = 0;
-                #endregion
-            }
-            #region Value X2
-            if (materialSlider1.Value == 2)
-            {
-                progressBar1.Value = 0;
-
-                progressBar1.Value = 1;
-                #region Estado
-                {
-                    if (progressBar1.Value == 1)
-                    {
-                        label1.Text = "Inyectando: FOV X2";
-                    }
-
-                }
-                #endregion
-                this.progressBar1.Value = 100;
-                byte[] On = { 0x3F, 0x60 }; ///FOV X2///
-                byte[] Off = { 0x3F, 0x80 };
-                PS3.SetMemory(0x014C670C, materialCheckbox13.Checked ? On : Off);
-                PS3M_API.PS3.Notify("MAIN.deep_of_field.x2");
-                #endregion
-            }
-            #region Value X3
-            if (materialSlider1.Value == 3)
-            {
-                progressBar1.Value = 0;
-
-                progressBar1.Value = 1;
-                #region Estado
-                {
-                    if (progressBar1.Value == 1)
-                    {
-                        label1.Text = "Inyectando: FOV X3";
-                    }
-
-                }
-                #endregion
-                this.progressBar1.Value = 100;
-                byte[] On = { 0x3F, 0x50 }; ///FOV X3///
-                byte[] Off = { 0x3F, 0x80 };
-                PS3.SetMemory(0x014C670C, materialCheckbox13.Checked ? On : Off);
-                PS3M_API.PS3.Notify("MAIN.deep_of_field.x3");
-                #endregion 
-            }
-            #region Value X4
-            if (materialSlider1.Value == 4)
-            {
-                progressBar1.Value = 0;
-
-                progressBar1.Value = 1;
-                #region Estado
-                {
-                    if (progressBar1.Value == 1)
-                    {
-                        label1.Text = "Inyectando FOV X4";
-
-                    }
-                    #endregion
-                    this.progressBar1.Value = 100;
-                    byte[] On = { 0x3F, 0x40 }; ///FOV X4///
-                    byte[] Off = { 0x3F, 0x80 };
-                    PS3.SetMemory(0x014C670C, materialCheckbox13.Checked ? On : Off);
-                    PS3M_API.PS3.Notify("MAIN.deep_of_field.x4");
-
-                }
-                #endregion
-            }
+            
         }
 
 
-        private void materialCheckbox13_CheckedChanged(object sender, EventArgs e)
-        {
-            if (materialCheckbox13.Checked == true)
-                this.materialSlider1.Enabled = true;
-            //////// ON - OFF
-            if (materialCheckbox13.Checked == false)
-                this.materialSlider1.Enabled = false;
-        }
+
 
         private void personalizarRichToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -830,6 +791,181 @@ namespace Destrin_Visual_Tool.Ded.forms
         {
             mus mus = new mus();
             mus.ShowDialog();
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void trackBar1_Click(object sender, EventArgs e)
+        {
+            //// VALUES ///
+            #region reset
+            if (trackBar1.Value == 1)
+            {
+                progressBar1.Value = 0;
+
+                progressBar1.Value = 1;
+                #region Estado
+                {
+                    if (progressBar1.Value == 1)
+                    {
+                        label1.Text = "Reiniciando: FOV";
+                    }
+
+                }
+                #endregion
+                this.progressBar1.Value = 100;
+                byte[] A = { 0x3F, 0x80 }; ///RESET///
+                byte[] B = { 0x3F, 0x80 };
+                PS3.SetMemory(0x014C670C, fov_.Checked ? A : B);
+                this.progressBar1.Value = 0;
+                #endregion
+            }
+            #region Value X2
+            if (trackBar1.Value == 2)
+            {
+                progressBar1.Value = 0;
+
+                progressBar1.Value = 1;
+                #region Estado
+                {
+                    if (progressBar1.Value == 1)
+                    {
+                        label1.Text = "Inyectando: FOV X2";
+                    }
+
+                }
+                #endregion
+                this.progressBar1.Value = 100;
+                byte[] On = { 0x3F, 0x60 }; ///FOV X2///
+                byte[] Off = { 0x3F, 0x80 };
+                PS3.SetMemory(0x014C670C, fov_.Checked ? On : Off);
+                PS3M_API.PS3.Notify("MAIN.deep_of_field.x2");
+                #endregion
+            }
+            #region Value X3
+            if (trackBar1.Value == 3)
+            {
+                progressBar1.Value = 0;
+
+                progressBar1.Value = 1;
+                #region Estado
+                {
+                    if (progressBar1.Value == 1)
+                    {
+                        label1.Text = "Inyectando: FOV X3";
+                    }
+
+                }
+                #endregion
+                this.progressBar1.Value = 100;
+                byte[] On = { 0x3F, 0x50 }; ///FOV X3///
+                byte[] Off = { 0x3F, 0x80 };
+                PS3.SetMemory(0x014C670C, fov_.Checked ? On : Off);
+                PS3M_API.PS3.Notify("MAIN.deep_of_field.x3");
+                #endregion 
+            }
+            #region Value X4
+            if (trackBar1.Value == 4)
+            {
+                progressBar1.Value = 0;
+
+                progressBar1.Value = 1;
+                #region Estado
+                {
+                    if (progressBar1.Value == 1)
+                    {
+                        label1.Text = "Inyectando FOV X4";
+
+                    }
+                    #endregion
+                    this.progressBar1.Value = 100;
+                    byte[] On = { 0x3F, 0x40 }; ///FOV X4///
+                    byte[] Off = { 0x3F, 0x80 };
+                    PS3.SetMemory(0x014C670C, fov_.Checked ? On : Off);
+                    PS3M_API.PS3.Notify("MAIN.deep_of_field.x4");
+
+                }
+                #endregion
+            }
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (fov_.Checked == true)
+                this.trackBar1.Enabled = true;
+            //////// ON - OFF
+            if (fov_.Checked == false)
+                this.trackBar1.Enabled = false;
+        }
+
+        private void button1_Click_2(object sender, EventArgs e)
+        {
+     
+           
+        }
+
+        private void notificarALaPCToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PC_Notify pcn = new PC_Notify();
+            pcn.ShowDialog();
+
+        }
+
+        private void Mods_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            
+            if (PS3M_API.IsConnected == true)
+            {
+                PS3M_API.DisconnectTarget();
+            }
+
+            functions_timer.Stop();
+            ntw.Icon = SystemIcons.Information;
+            ntw.Text = "Cerrando y desconectando de la consola.";
+            ntw.BalloonTipText = "Se desconectó de: " + PS3M_API.Process;
+            ntw.BalloonTipTitle = "Cerrando";
+            ntw.ShowBalloonTip(1000);
+          //  Environment.Exit(001);
+        }
+
+        private void richTextBox1_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void button1_Click_3(object sender, EventArgs e)
+        {
+            Application.Restart(); Environment.Exit(0);
+        }
+
+        private void cCVToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+        
+            
+
+        }
+
+        private void label12_Click(object sender, EventArgs e)
+        {
+           
+           /// forms.capturecard_viewer ccv = new forms.capturecard_viewer();
+           /// ccv.Activate();
+          ///  ccv.Show();
+         ///   ccv.BringToFront();
+        ////    forms.Mods md = new forms.Mods();
+      ////     md.Close();
+
+
+        }
+
+        private void kTXMBToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            byte[] Unable = { 0x40 };
+            byte[] Able = { 0x41 };
+            PS3.SetMemory(0x00785DBC, kTXMBToolStripMenuItem.Checked ? Unable : Able);
         }
     }
 }

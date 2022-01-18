@@ -32,6 +32,18 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release 1.0|AnyCPU'">
+    <OutputPath>bin\Release 1.0\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release 1.5|AnyCPU'">
+    <OutputPath>bin\Release 1.5\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <NoWin32Manifest>true</NoWin32Manifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>rich1.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="AForge, Version=2.2.5.0, Culture=neutral, PublicKeyToken=c1db6ff4eaa06aeb, processorArchitecture=MSIL">
       <HintPath>..\packages\AForge.2.2.5\lib\AForge.dll</HintPath>
@@ -167,6 +179,12 @@
     <Compile Include="Ded\forms\mus.Designer.cs">
       <DependentUpon>mus.cs</DependentUpon>
     </Compile>
+    <Compile Include="Ded\forms\PC_Notify.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ded\forms\PC_Notify.Designer.cs">
+      <DependentUpon>PC_Notify.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ded\forms\PS3-Sender-AddOn.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -214,8 +232,14 @@
     <EmbeddedResource Include="Ded\forms\acc.resx">
       <DependentUpon>acc.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Ded\forms\att_process_dialog.en-US.resx">
+      <DependentUpon>att_process_dialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Ded\forms\att_process_dialog.resx">
       <DependentUpon>att_process_dialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ded\forms\capturecard_viewer.en-US.resx">
+      <DependentUpon>capturecard_viewer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ded\forms\capturecard_viewer.resx">
       <DependentUpon>capturecard_viewer.cs</DependentUpon>
@@ -223,14 +247,29 @@
     <EmbeddedResource Include="Ded\forms\MatchRich.resx">
       <DependentUpon>MatchRich.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Ded\forms\Mods.en-US.resx">
+      <DependentUpon>Mods.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ded\forms\Mods.es-US.resx">
+      <DependentUpon>Mods.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Ded\forms\Mods.resx">
       <DependentUpon>Mods.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ded\forms\mus.resx">
       <DependentUpon>mus.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Ded\forms\PC_Notify.resx">
+      <DependentUpon>PC_Notify.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ded\forms\PS3-Sender-AddOn.en-US.resx">
+      <DependentUpon>PS3-Sender-AddOn.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Ded\forms\PS3-Sender-AddOn.resx">
       <DependentUpon>PS3-Sender-AddOn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ded\forms\ps3message.en-US.resx">
+      <DependentUpon>ps3message.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ded\forms\ps3message.resx">
       <DependentUpon>ps3message.cs</DependentUpon>
@@ -239,6 +278,9 @@
       <DependentUpon>settings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ded\oldver\Main.resx" />
+    <EmbeddedResource Include="MainSplash.en-US.resx">
+      <DependentUpon>MainSplash.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainSplash.resx">
       <DependentUpon>MainSplash.cs</DependentUpon>
     </EmbeddedResource>
@@ -247,6 +289,10 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="mus\Aria Math.mus" />
+    <None Include="mus\haiku3sm.mus" />
+    <None Include="mus\Subwoofer Lullaby.mus" />
+    <None Include="mus\The Eyes Of Truth.mus" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -278,9 +324,6 @@
   <ItemGroup>
     <None Include="Resources\skinGraphicsInGame_1291.ico" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\852901993155657779.jpeg" />
-  </ItemGroup>
   <ItemGroup />
   <ItemGroup>
     <None Include="Resources\WIFIICO.png" />
@@ -291,11 +334,17 @@
   <ItemGroup>
     <Content Include="AdditionalForms\CodigoBasura.xml" />
     <Content Include="Ded\MaterialSkin.dll" />
-    <Content Include="Ded\Minecraft Code.xml" />
-    <Content Include="Ded\Minecraft Offsets.xml" />
+    <Content Include="Ded\Minecraft Code.txt" />
+    <Content Include="Ded\Minecraft Offsets.txt" />
     <Content Include="MetroFramework\MetroFramework.Design.dll" />
     <Content Include="MetroFramework\MetroFramework.dll" />
     <Content Include="MetroFramework\MetroFramework.Fonts.dll" />
+    <None Include="Resources\MODS.png" />
+    <Content Include="rich1.ico" />
+    <None Include="Resources\skinGraphicsInGame_141.png" />
+    <None Include="Resources\skinGraphics_160.png" />
+    <None Include="Resources\skinGraphics_209.png" />
+    <None Include="Resources\ps3-stick1.jpeg" />
     <None Include="Resources\ps3-stick.jpeg" />
     <None Include="Resources\SurvivalIcon.png" />
     <None Include="Resources\MG03icon.png" />

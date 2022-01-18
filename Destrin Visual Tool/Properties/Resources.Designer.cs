@@ -63,16 +63,6 @@ namespace Destrin_Visual_Tool.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _852901993155657779 {
-            get {
-                object obj = ResourceManager.GetObject("852901993155657779", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap attach {
             get {
                 object obj = ResourceManager.GetObject("attach", resourceCulture);
@@ -133,9 +123,49 @@ namespace Destrin_Visual_Tool.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap MODS {
+            get {
+                object obj = ResourceManager.GetObject("MODS", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ps3_stick {
             get {
                 object obj = ResourceManager.GetObject("ps3-stick", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ps3_stick1 {
+            get {
+                object obj = ResourceManager.GetObject("ps3-stick1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap skinGraphics_160 {
+            get {
+                object obj = ResourceManager.GetObject("skinGraphics_160", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap skinGraphics_209 {
+            get {
+                object obj = ResourceManager.GetObject("skinGraphics_209", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -156,6 +186,16 @@ namespace Destrin_Visual_Tool.Properties {
         internal static System.Drawing.Bitmap skinGraphicsInGame_1291 {
             get {
                 object obj = ResourceManager.GetObject("skinGraphicsInGame_1291", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap skinGraphicsInGame_141 {
+            get {
+                object obj = ResourceManager.GetObject("skinGraphicsInGame_141", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
