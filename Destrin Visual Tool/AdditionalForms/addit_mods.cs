@@ -1,14 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using PS3Lib;
+using System;
 using System.Windows.Forms;
-using PS3Lib;
-using PS3ManagerAPI;
 
 namespace DED_RTM_VER._2._0_restored.AdditionalForms
 {
@@ -39,13 +31,13 @@ namespace DED_RTM_VER._2._0_restored.AdditionalForms
 
         private void checkBox3_CheckedChanged(object sender, EventArgs e)
         {
-            
+
             ///Atmósfera Mejorada
             byte[] On = { 0x0F };
             byte[] Off = { 0x3F };
             PS3.SetMemory(0x00A9A6DC, checkBox3.Checked ? On : Off);
             PS3M_API.PS3.Notify("AFMÓSFERA MEJORADA");
-         
+
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -94,6 +86,6 @@ namespace DED_RTM_VER._2._0_restored.AdditionalForms
     }
 }
 
-            
-    
-                
+
+
+

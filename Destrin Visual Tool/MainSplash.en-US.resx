@@ -118,32 +118,34 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="materialLabel1.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Roboto, 14px</value>
+  <data name="ip_text_box.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 85</value>
   </data>
-  <data name="materialLabel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>72, 32</value>
-  </data>
-  <data name="materialLabel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>141, 19</value>
-  </data>
-  <data name="materialLabel1.Text" xml:space="preserve">
-    <value>Connect (PS3MAPI)</value>
-  </data>
-  <data name="materialButton1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>105, 157</value>
-  </data>
-  <data name="materialButton1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>111, 36</value>
-  </data>
-  <data name="materialButton1.Text" xml:space="preserve">
-    <value>Developers</value>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="button1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="button1.Text" xml:space="preserve">
     <value>Connect</value>
   </data>
+  <data name="button2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="button2.Text" xml:space="preserve">
     <value>Music</value>
+  </data>
+  <data name="button3.Text" xml:space="preserve">
+    <value>Continue withing Connection
+</value>
+  </data>
+  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>31, 36</value>
+  </data>
+  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>237, 25</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>Connect (HFW PSMAPI) </value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>300, 233</value>

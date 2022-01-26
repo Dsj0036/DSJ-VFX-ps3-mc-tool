@@ -1,14 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using PS3Lib;
+using System;
 using System.Windows.Forms;
-using PS3Lib;
-using PS3ManagerAPI;
 
 namespace DED_RTM_VER._2._0_restored.AdditionalForms
 {
@@ -28,7 +20,7 @@ namespace DED_RTM_VER._2._0_restored.AdditionalForms
 
         private void trackBar1_Scroll(object sender, EventArgs e)
         {
-            
+
         }
 
         private void toolStripLabel1_Click(object sender, EventArgs e)
@@ -119,7 +111,7 @@ namespace DED_RTM_VER._2._0_restored.AdditionalForms
         private void button2_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Abort;
-               
+
         }
     }
 }

@@ -1,14 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using PS3Lib;
+using System;
 using System.Windows.Forms;
-using PS3ManagerAPI;
-using PS3Lib;
 
 
 namespace DED_RTM_VER._2._0_restored.AdditionalForms
@@ -24,13 +16,13 @@ namespace DED_RTM_VER._2._0_restored.AdditionalForms
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-           
-            
+
+
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-           
+
             PS3.ChangeAPI(SelectAPI.PS3Manager);
             if (!PS3M_API.AttachProcess(PS3M_API.Process.Processes_Pid[this.AttachMethod.SelectedIndex]))
             {
@@ -42,7 +34,7 @@ namespace DED_RTM_VER._2._0_restored.AdditionalForms
             MessageBox.Show("Se vinculó correctamente.");
             DialogResult = DialogResult.OK;
             {
-          
+
             }
         }
 
@@ -64,10 +56,10 @@ namespace DED_RTM_VER._2._0_restored.AdditionalForms
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Se ha producido un error (00x1)", MessageBoxButtons.OK, MessageBoxIcon.Hand);
-                DialogResult = DialogResult.Cancel; 
+                DialogResult = DialogResult.Cancel;
             }
 
-           
+
         }
 
         private void button2_Click(object sender, EventArgs e)

@@ -1,5 +1,4 @@
-﻿using System.Runtime.InteropServices;
-using DiscordRPC;
+﻿using DiscordRPC;
 
 namespace RichPresenceClient
 {

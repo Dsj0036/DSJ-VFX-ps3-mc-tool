@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using DiscordRPC;
+﻿using DiscordRPC;
 using DiscordRPC.Logging;
+using System;
+using System.Windows.Forms;
 
 
 namespace Destrin_Visual_Tool.Ded.forms
@@ -29,7 +22,7 @@ namespace Destrin_Visual_Tool.Ded.forms
         private void button2_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.OK;
-            
+
             initalized = true;
             customclient = new DiscordRpcClient("929438860386140190");
             customclient.Logger = new ConsoleLogger() { Level = LogLevel.Warning };
@@ -75,12 +68,12 @@ namespace Destrin_Visual_Tool.Ded.forms
 
         private void MatchRich_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            
+
             customclient.ClearPresence();
             customclient.Dispose();
         }

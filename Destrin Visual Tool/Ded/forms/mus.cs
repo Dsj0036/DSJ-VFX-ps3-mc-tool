@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Destrin_Visual_Tool.Ded.forms
@@ -39,7 +32,7 @@ namespace Destrin_Visual_Tool.Ded.forms
                 System.Media.SoundPlayer bgmus = new System.Media.SoundPlayer();
                 bgmus.Play();
             }
-            }
+        }
 
         private void button5_Click(object sender, EventArgs e)
         {
@@ -87,7 +80,7 @@ namespace Destrin_Visual_Tool.Ded.forms
         private void materialButton1_Click_1(object sender, EventArgs e)
         {
             DialogResult = DialogResult.OK;
-         
+
 
         }
 

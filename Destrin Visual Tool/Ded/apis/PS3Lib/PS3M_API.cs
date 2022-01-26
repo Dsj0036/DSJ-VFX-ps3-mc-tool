@@ -199,51 +199,51 @@ namespace PS3Lib
 
         public bool Power(PS3ManagerAPI.PS3MAPI.PS3_CMD.PowerFlags flag)
         {
-             try
-             {
+            try
+            {
                 PS3M_API.PS3.Power(flag);
                 return true;
-             }
-             catch (Exception ex)
-             {
-                 MessageBox.Show(ex.Message, "Error PS3M_API", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                 return false;
-             }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error PS3M_API", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
         }
 
         public bool RingBuzzer(PS3ManagerAPI.PS3MAPI.PS3_CMD.BuzzerMode mode)
         {
-             try
-             {
+            try
+            {
                 PS3M_API.PS3.RingBuzzer(mode);
                 return true;
-             }
-             catch (Exception ex)
-             {
-                 MessageBox.Show(ex.Message, "Error PS3M_API", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                 return false;
-             }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error PS3M_API", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
         }
 
         public bool SetConsoleLed(PS3ManagerAPI.PS3MAPI.PS3_CMD.LedColor color, PS3ManagerAPI.PS3MAPI.PS3_CMD.LedMode mode)
         {
-             try
-             {
+            try
+            {
                 PS3M_API.PS3.Led(color, mode);
                 return true;
-             }
-             catch (Exception ex)
-             {
-                 MessageBox.Show(ex.Message, "Error PS3M_API", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                 return false;
-             }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error PS3M_API", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
         }
 
         public string GetFirmwareVersion()
         {
             return PS3M_API.PS3.GetFirmwareVersion_Str();
         }
-        
+
         public string GetFirmwareType()
         {
             return PS3M_API.PS3.GetFirmwareType();
@@ -287,7 +287,7 @@ namespace PS3Lib
             cpu = 0; rsx = 0;
             try
             {
-                 PS3M_API.PS3.GetTemperature(out cpu, out rsx);
+                PS3M_API.PS3.GetTemperature(out cpu, out rsx);
                 return true;
             }
             catch (Exception ex)
@@ -405,7 +405,7 @@ namespace PS3Lib
             {
                 MessageBox.Show(ex.Message, "Error PS3M_API", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
-            
+
             }
         }
 

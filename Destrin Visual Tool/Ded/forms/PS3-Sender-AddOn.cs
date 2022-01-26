@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using DiscordRPC;
+using DiscordRPC.Logging;
+using System;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.IO;
 using System.Net;
-using DiscordRPC;
-using DiscordRPC.Logging;
+using System.Windows.Forms;
 
 namespace Destrin_Visual_Tool.Ded.forms
 {
@@ -72,7 +66,7 @@ namespace Destrin_Visual_Tool.Ded.forms
                     double percentage = read / total * 100;
                     backgroundWorker1.ReportProgress((int)percentage);
                 }
-                
+
             }
             while (byteRead != 0);
             fs.Close();
@@ -116,7 +110,7 @@ namespace Destrin_Visual_Tool.Ded.forms
 
         private void PS3_Sender_AddOn_Load(object sender, EventArgs e)
         {
-            
+
             //__//
             try
             {

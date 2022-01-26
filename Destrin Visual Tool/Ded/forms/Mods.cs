@@ -1,27 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using PS3Lib;
-using PS3ManagerAPI;
-using DiscordRPC;
+﻿using DiscordRPC;
 using DiscordRPC.Logging;
-using MaterialSkin;
-using AForge;
-using AForge.Video;
-using AForge.Video.DirectShow;
+using PS3Lib;
+using System;
+using System.ComponentModel;
+using System.Drawing;
+using System.IO;
+using System.Windows.Forms;
 
 
 namespace Destrin_Visual_Tool.Ded.forms
 {
     public partial class Mods : Form
-    {
 
+    {
+        Timer Timer = new Timer();
         System.Media.SoundPlayer bgmus = new System.Media.SoundPlayer();
 
         PS3ManagerAPI.PS3MAPI PS3M_API = new PS3ManagerAPI.PS3MAPI();
@@ -31,18 +23,49 @@ namespace Destrin_Visual_Tool.Ded.forms
             InitializeComponent();
 
         }
+        private void DefTime()
+        {
 
+            Timer.Interval = (1000);
+            Timer.Enabled = true;
+            Timer.Start();
+            Timer.Tick += new EventHandler(timer_Tick);
+            string ClockHour = DateTime.Now.Hour.ToString();
+
+
+        }
         public DiscordRpcClient client;
         bool initalized = false;
-        private void Mods_Load(object sender, EventArgs e)
+        private void Mods_Load_1(object sender, EventArgs e)
         {
-           
+            DefTime();
+            runtimer_total.Start();
             if (PS3M_API.IsConnected == false)
             {
                 #region Default Event
                 con_label.Text = "Not connected";
-                desconectarToolStripMenuItem.Enabled = false;
+                this.pictureBox2.Image = this.pictureBox1.Image = SystemIcons.Error.ToBitmap();
                 this.pictureBox1.Image = global::Destrin_Visual_Tool.Properties.Resources.skinGraphicsInGame_141;
+                a_Status.ForeColor = Color.FromArgb(255, 132, 0);
+                a_Status.BackColor = Color.FromArgb(0, 0, 0);
+
+
+                a_Status.Text = "No se puede obtener el autoguardado.";
+
+                {///disabler
+                    autosave_timer.Stop();
+                    autosave_byte_timer.Stop();
+                    gUARDARPARTIDAToolStripMenuItem.Enabled = false;
+                    kTXMBToolStripMenuItem.Enabled = false;
+                    desconectarToolStripMenuItem.Enabled = false;
+                    visorDeCapturadorasToolStripMenuItem1.Enabled = false;
+                    notificacionALaConsolaToolStripMenuItem.Enabled = false;
+                    enviarALaConsolaToolStripMenuItem.Enabled = false;
+                    cONEXIÓNToolStripMenuItem.Visible = false;
+
+
+
+                }
                 #endregion
 
                 #region custom notification 
@@ -68,6 +91,8 @@ namespace Destrin_Visual_Tool.Ded.forms
             }
             else if (PS3M_API.IsConnected == true)
             {
+                consoleip.Text = Properties.Settings.Default.CurrentConsoleIP;
+                this.Text = "Mods - " + Properties.Settings.Default.CurrentConsoleIP;
                 con_label.Text = "Connected";
                 desconectarToolStripMenuItem.Enabled = true;
                 this.pictureBox1.Image = global::Destrin_Visual_Tool.Properties.Resources.skinGraphicsInGame_1291;
@@ -81,14 +106,19 @@ namespace Destrin_Visual_Tool.Ded.forms
                 loc.Text = PS3M_API.Log;
                 fov_.Enabled = true;
                 loc.Enabled = true;
-                
+                autosave_timer.Start();
+                autosave_byte_timer.Start();
+                gUARDARPARTIDAToolStripMenuItem.Enabled = true;
 
             }
+            /// IF RPC
             else if (PS3M_API.IsConnected == false)
             {
+                this.Text = "Mods" + " - No conectado";
+
                 try
                 {
-                  
+
                     initalized = true;
                     client = new DiscordRpcClient("929438860386140190");
                     client.Logger = new ConsoleLogger() { Level = LogLevel.Warning };
@@ -112,23 +142,18 @@ namespace Destrin_Visual_Tool.Ded.forms
                 {
                     MessageBox.Show("Se produjo un error al iniciar la RPC de Discord", "Error", MessageBoxButtons.RetryCancel);
                 }
-            
+
             }
-            
+
             functions_timer.Start();
 
         }
-        int i = 1;
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            i++;
 
 
-        }
 
         private void materialSlider1_Click(object sender, EventArgs e)
         {
-           
+
         }
         private void materialSlider1_Scroll(object sender, EventArgs e)
         {
@@ -178,7 +203,7 @@ namespace Destrin_Visual_Tool.Ded.forms
         private void revincularToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
-            
+
         }
 
         private void desconectarToolStripMenuItem_Click(object sender, EventArgs e)
@@ -303,14 +328,14 @@ namespace Destrin_Visual_Tool.Ded.forms
 
         private void timer1_Tick_1(object sender, EventArgs e)
         {
-            progressBar1.Value = 0;
-            progressBar1.Value = 0;
-            progressBar1.Value = 0;
-            progressBar1.Value = 0;
-            progressBar1.Value = 0;
-            progressBar1.Value = 0;
-            progressBar1.Value = 0;
-            progressBar1.Value = 0;
+            Status_Loader.Value = 0;
+            Status_Loader.Value = 0;
+            Status_Loader.Value = 0;
+            Status_Loader.Value = 0;
+            Status_Loader.Value = 0;
+            Status_Loader.Value = 0;
+            Status_Loader.Value = 0;
+            Status_Loader.Value = 0;
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -321,26 +346,26 @@ namespace Destrin_Visual_Tool.Ded.forms
         private void materialCheckbox1_CheckedChanged(object sender, EventArgs e)
         {
             {
-                progressBar1.Value = 0;
+                Status_Loader.Value = 0;
 
-                progressBar1.Value = 1;
+                Status_Loader.Value = 1;
                 #region Estado
                 {
-                    if (progressBar1.Value == 1)
+                    if (Status_Loader.Value == 1)
                     {
                         label1.Text = "Inyectando:" + this.materialCheckbox1.Text;
                     }
 
                 }
                 #endregion
-                this.progressBar1.Value = 100;
+                this.Status_Loader.Value = 100;
                 byte[] On = { 0x41 }; /// Lock Weather/// 
                 byte[] Off = { 0x40 };
                 PS3.SetMemory(0x00393E84, materialCheckbox1.Checked ? On : Off);
                 PS3M_API.PS3.Notify("Mantener Clima");
             }
 
-            progressBar1.Value = 0;
+            Status_Loader.Value = 0;
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
@@ -362,35 +387,17 @@ namespace Destrin_Visual_Tool.Ded.forms
 
         private void materialCheckbox2_CheckedChanged(object sender, EventArgs e)
         {
-            progressBar1.Value = 0;
-
-            progressBar1.Value = 1;
-            #region Estado
-            {
-                if (progressBar1.Value == 1)
-                {
-                    label1.Text = "Inyectando:" + this.materialCheckbox2.Text;
-                }
-
-            }
-            #endregion
-            this.progressBar1.Value = 100;
-
-            ///AutoSave
-            byte[] On = { 0x40 };
-            byte[] Off = { 0x41 };
-            PS3.SetMemory(0x00AEEE54, materialCheckbox2.Checked ? On : Off);
 
         }
 
         private void materialCheckbox3_CheckedChanged(object sender, EventArgs e)
         {
-            progressBar1.Value = 0;
-            progressBar1.Value = 1;
+            Status_Loader.Value = 0;
+            Status_Loader.Value = 1;
             {
                 #region Estado
                 {
-                    if (progressBar1.Value == 1)
+                    if (Status_Loader.Value == 1)
                     {
                         label1.Text = "Inyectando:" + this.materialCheckbox3.Text;
                     }
@@ -398,7 +405,7 @@ namespace Destrin_Visual_Tool.Ded.forms
                 }
                 #endregion
             }
-            progressBar1.Value = 100;
+            Status_Loader.Value = 100;
 
 
 
@@ -411,8 +418,8 @@ namespace Destrin_Visual_Tool.Ded.forms
 
         private void notificarALaConsolaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            progressBar1.Value = 0;
-            this.progressBar1.Value = 100;
+            Status_Loader.Value = 0;
+            this.Status_Loader.Value = 100;
             Ded.forms.ps3message ps3noti = new Ded.forms.ps3message();
             ps3noti.ShowDialog();
 
@@ -420,19 +427,19 @@ namespace Destrin_Visual_Tool.Ded.forms
 
         private void materialCheckbox4_CheckedChanged(object sender, EventArgs e)
         {
-            progressBar1.Value = 0;
+            Status_Loader.Value = 0;
 
-            progressBar1.Value = 1;
+            Status_Loader.Value = 1;
             #region Estado
             {
-                if (progressBar1.Value == 1)
+                if (Status_Loader.Value == 1)
                 {
                     label1.Text = "Inyectando:" + this.materialCheckbox4.Text;
                 }
 
             }
             #endregion
-            this.progressBar1.Value = 100;
+            this.Status_Loader.Value = 100;
             /// Hit Delay
             byte[] Checked = { 0x20 };
             byte[] Unchecked = { 0x00 };
@@ -442,19 +449,19 @@ namespace Destrin_Visual_Tool.Ded.forms
 
         private void materialCheckbox7_CheckedChanged(object sender, EventArgs e)
         {
-            progressBar1.Value = 0;
+            Status_Loader.Value = 0;
 
-            progressBar1.Value = 1;
+            Status_Loader.Value = 1;
             #region Estado
             {
-                if (progressBar1.Value == 1)
+                if (Status_Loader.Value == 1)
                 {
                     label1.Text = "Inyectando:" + this.materialCheckbox7.Text;
                 }
 
             }
             #endregion
-            this.progressBar1.Value = 100;
+            this.Status_Loader.Value = 100;
             ///Lock Gamemode
             byte[] Checked = { 0x41 };
             byte[] Unchecked = { 0x40 };
@@ -463,19 +470,19 @@ namespace Destrin_Visual_Tool.Ded.forms
 
         private void materialCheckbox8_CheckedChanged(object sender, EventArgs e)
         {
-            progressBar1.Value = 0;
+            Status_Loader.Value = 0;
 
-            progressBar1.Value = 1;
+            Status_Loader.Value = 1;
             #region Estado
             {
-                if (progressBar1.Value == 1)
+                if (Status_Loader.Value == 1)
                 {
                     label1.Text = "Inyectando:" + this.materialCheckbox8.Text;
                 }
 
             }
             #endregion
-            this.progressBar1.Value = 100;
+            this.Status_Loader.Value = 100;
             /// minigame Hud
             byte[] Checked = { 0x41, 0x82 };
             byte[] Unchecked = { 0x40, 0x82 };
@@ -487,19 +494,19 @@ namespace Destrin_Visual_Tool.Ded.forms
 
         private void materialCheckbox6_CheckedChanged(object sender, EventArgs e)
         {
-            progressBar1.Value = 0;
+            Status_Loader.Value = 0;
 
-            progressBar1.Value = 1;
+            Status_Loader.Value = 1;
             #region Estado
             {
-                if (progressBar1.Value == 1)
+                if (Status_Loader.Value == 1)
                 {
                     label1.Text = "Inyectando:" + this.materialCheckbox6.Text;
                 }
 
             }
             #endregion
-            this.progressBar1.Value = 100;
+            this.Status_Loader.Value = 100;
             /// Ids 
             byte[] On = { 0x40 };
             byte[] Off = { 0x41 };
@@ -520,11 +527,7 @@ namespace Destrin_Visual_Tool.Ded.forms
 
         private void ajustesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ///
 
-            ///   Ded.forms.settings Sets = new Ded.forms.settings();
-            ///    Sets.ShowDialog();
-            ///
         }
 
         private void materialRadioButton5_CheckedChanged(object sender, EventArgs e)
@@ -565,7 +568,7 @@ namespace Destrin_Visual_Tool.Ded.forms
 
         private void timer1_Tick_2(object sender, EventArgs e)
         {
-            if (progressBar1.Value == 100)
+            if (Status_Loader.Value == 100)
             {
                 label1.Text = "Listo";
             }
@@ -580,8 +583,8 @@ namespace Destrin_Visual_Tool.Ded.forms
         private void progressBar1_Click(object sender, EventArgs e)
 
         {
-            progressBar1.Value = 0;
-            progressBar1.Value = 100;
+            Status_Loader.Value = 0;
+            Status_Loader.Value = 100;
         }
 
         private void button5_Click_1(object sender, EventArgs e)
@@ -610,28 +613,28 @@ namespace Destrin_Visual_Tool.Ded.forms
 
         private void visorDeCapturadorasToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            progressBar1.Value = 0;
-            this.progressBar1.Value = 100;
+            Status_Loader.Value = 0;
+            this.Status_Loader.Value = 100;
             capturecard_viewer ccv = new capturecard_viewer();
             ccv.Show();
         }
 
         private void notificacionALaConsolaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            progressBar1.Value = 0;
-            this.progressBar1.Value = 100;
+            Status_Loader.Value = 0;
+            this.Status_Loader.Value = 100;
             Ded.forms.ps3message ps3noti = new Ded.forms.ps3message();
             ps3noti.ShowDialog();
         }
 
         private void materialCheckbox5_CheckedChanged_1(object sender, EventArgs e)
         {
-            progressBar1.Value = 0;
+            Status_Loader.Value = 0;
 
-            progressBar1.Value = 1;
+            Status_Loader.Value = 1;
 
             {
-                if (progressBar1.Value == 1)
+                if (Status_Loader.Value == 1)
                 {
                     label1.Text = "Inyectando: " + this.materialCheckbox5.Text;
                 }
@@ -640,17 +643,17 @@ namespace Destrin_Visual_Tool.Ded.forms
             byte[] On = { 0x40 };
             byte[] Off = { 0x41 };
             PS3.SetMemory(0x003097B8, materialCheckbox5.Checked ? On : Off);
-            this.progressBar1.Value = 100;
+            this.Status_Loader.Value = 100;
         }
 
         private void materialCheckbox9_CheckedChanged(object sender, EventArgs e)
         {
-            progressBar1.Value = 0;
+            Status_Loader.Value = 0;
 
-            progressBar1.Value = 1;
+            Status_Loader.Value = 1;
 
             {
-                if (progressBar1.Value == 1)
+                if (Status_Loader.Value == 1)
                 {
                     label1.Text = "Inyectando: " + this.materialCheckbox9.Text;
                 }
@@ -658,35 +661,35 @@ namespace Destrin_Visual_Tool.Ded.forms
             }
             byte[] On = { 0x38, 0x80, 0x00, 0x01 };
             byte[] Off = { 0x38, 0x80, 0x00, 0x00 };
-            PS3.SetMemory(0x003097B8, materialCheckbox9.Checked ? On : Off);
-            this.progressBar1.Value = 100;
+            PS3.SetMemory(0x0090B5F0, materialCheckbox9.Checked ? On : Off);
+            this.Status_Loader.Value = 100;
         }
 
         private void materialCheckbox10_CheckedChanged(object sender, EventArgs e)
         {
-            progressBar1.Value = 0;
+            Status_Loader.Value = 0;
 
-            progressBar1.Value = 1;
+            Status_Loader.Value = 1;
 
             {
-                if (progressBar1.Value == 1)
+                if (Status_Loader.Value == 1)
                 {
                     label1.Text = "Inyectando: " + this.materialCheckbox10.Text;
                 }
 
             }
 
-            this.progressBar1.Value = 100;
+            this.Status_Loader.Value = 100;
         }
 
         private void materialCheckbox11_CheckedChanged(object sender, EventArgs e)
         {
-            progressBar1.Value = 0;
+            Status_Loader.Value = 0;
 
-            progressBar1.Value = 1;
+            Status_Loader.Value = 1;
 
             {
-                if (progressBar1.Value == 1)
+                if (Status_Loader.Value == 1)
                 {
                     label1.Text = "Inyectando: " + this.materialCheckbox11.Text;
                 }
@@ -698,29 +701,31 @@ namespace Destrin_Visual_Tool.Ded.forms
                 //
             }
 
-            this.progressBar1.Value = 100;
+            this.Status_Loader.Value = 100;
         }
 
         private void materialCheckbox12_CheckedChanged(object sender, EventArgs e)
         {
-            progressBar1.Value = 0;
+            Status_Loader.Value = 0;
 
-            progressBar1.Value = 1;
+            Status_Loader.Value = 1;
 
             {
-                if (progressBar1.Value == 1)
+                if (Status_Loader.Value == 1)
                 {
                     label1.Text = "Inyectando: " + this.materialCheckbox12.Text;
                 }
-
+                byte[] On = { 0x40 };   ///ANTIKICK
+                byte[] Off = { 0x41 };
+                PS3.SetMemory(0x00AEE434, materialCheckbox12.Checked ? On : Off);
             }
 
-            this.progressBar1.Value = 100;
+            this.Status_Loader.Value = 100;
         }
 
         private void materialSlider1_Click_1(object sender, EventArgs e)
         {
-            
+
         }
 
 
@@ -740,17 +745,17 @@ namespace Destrin_Visual_Tool.Ded.forms
 
 
 
-            { 
-              
+            {
+
             }
         }
 
         private void button2_Click_1(object sender, EventArgs e)
         {
 
-        
 
-            
+
+
         }
 
         private void enviarALaConsolaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -758,33 +763,33 @@ namespace Destrin_Visual_Tool.Ded.forms
             client.Dispose();
             PS3_Sender_AddOn PSFA = new PS3_Sender_AddOn();
             PSFA.ShowDialog();
-           
+
             //__//
             /// try
             /// {
 
             ///initalized = true;
             /// client.Logger = new ConsoleLogger() { Level = LogLevel.Warning };
-             ///   client.Initialize();
-                ////client.SetPresence(new DiscordRPC.RichPresence()
-               /// {
-                  ///  Details = $"Herramientas",
-                  ///  State = $"PSFA 1.0",
-                  ///  Timestamps = Timestamps.Now,
-                  ///  Assets = new Assets()
-                  ///  {
-                     ///   LargeImageKey = $"largeico",
-                        ///LargeImageText = "Dedition Visual Effects Tool For MC PS3 ",
-                     
+            ///   client.Initialize();
+            ////client.SetPresence(new DiscordRPC.RichPresence()
+            /// {
+            ///  Details = $"Herramientas",
+            ///  State = $"PSFA 1.0",
+            ///  Timestamps = Timestamps.Now,
+            ///  Assets = new Assets()
+            ///  {
+            ///   LargeImageKey = $"largeico",
+            ///LargeImageText = "Dedition Visual Effects Tool For MC PS3 ",
 
 
-               //     }
-             //   });
+
+            //     }
+            //   });
             //}
-           /// catch
-           // {
-             ///   MessageBox.Show("Se produjo un error al iniciar la RPC de Discord", "Error", MessageBoxButtons.RetryCancel);
-           // }
+            /// catch
+            // {
+            ///   MessageBox.Show("Se produjo un error al iniciar la RPC de Discord", "Error", MessageBoxButtons.RetryCancel);
+            // }
 
         }
         private void músicaDeFondoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -804,41 +809,41 @@ namespace Destrin_Visual_Tool.Ded.forms
             #region reset
             if (trackBar1.Value == 1)
             {
-                progressBar1.Value = 0;
+                Status_Loader.Value = 0;
 
-                progressBar1.Value = 1;
+                Status_Loader.Value = 1;
                 #region Estado
                 {
-                    if (progressBar1.Value == 1)
+                    if (Status_Loader.Value == 1)
                     {
                         label1.Text = "Reiniciando: FOV";
                     }
 
                 }
                 #endregion
-                this.progressBar1.Value = 100;
+                this.Status_Loader.Value = 100;
                 byte[] A = { 0x3F, 0x80 }; ///RESET///
                 byte[] B = { 0x3F, 0x80 };
                 PS3.SetMemory(0x014C670C, fov_.Checked ? A : B);
-                this.progressBar1.Value = 0;
+                this.Status_Loader.Value = 0;
                 #endregion
             }
             #region Value X2
             if (trackBar1.Value == 2)
             {
-                progressBar1.Value = 0;
+                Status_Loader.Value = 0;
 
-                progressBar1.Value = 1;
+                Status_Loader.Value = 1;
                 #region Estado
                 {
-                    if (progressBar1.Value == 1)
+                    if (Status_Loader.Value == 1)
                     {
                         label1.Text = "Inyectando: FOV X2";
                     }
 
                 }
                 #endregion
-                this.progressBar1.Value = 100;
+                this.Status_Loader.Value = 100;
                 byte[] On = { 0x3F, 0x60 }; ///FOV X2///
                 byte[] Off = { 0x3F, 0x80 };
                 PS3.SetMemory(0x014C670C, fov_.Checked ? On : Off);
@@ -848,19 +853,19 @@ namespace Destrin_Visual_Tool.Ded.forms
             #region Value X3
             if (trackBar1.Value == 3)
             {
-                progressBar1.Value = 0;
+                Status_Loader.Value = 0;
 
-                progressBar1.Value = 1;
+                Status_Loader.Value = 1;
                 #region Estado
                 {
-                    if (progressBar1.Value == 1)
+                    if (Status_Loader.Value == 1)
                     {
                         label1.Text = "Inyectando: FOV X3";
                     }
 
                 }
                 #endregion
-                this.progressBar1.Value = 100;
+                this.Status_Loader.Value = 100;
                 byte[] On = { 0x3F, 0x50 }; ///FOV X3///
                 byte[] Off = { 0x3F, 0x80 };
                 PS3.SetMemory(0x014C670C, fov_.Checked ? On : Off);
@@ -870,18 +875,18 @@ namespace Destrin_Visual_Tool.Ded.forms
             #region Value X4
             if (trackBar1.Value == 4)
             {
-                progressBar1.Value = 0;
+                Status_Loader.Value = 0;
 
-                progressBar1.Value = 1;
+                Status_Loader.Value = 1;
                 #region Estado
                 {
-                    if (progressBar1.Value == 1)
+                    if (Status_Loader.Value == 1)
                     {
                         label1.Text = "Inyectando FOV X4";
 
                     }
                     #endregion
-                    this.progressBar1.Value = 100;
+                    this.Status_Loader.Value = 100;
                     byte[] On = { 0x3F, 0x40 }; ///FOV X4///
                     byte[] Off = { 0x3F, 0x80 };
                     PS3.SetMemory(0x014C670C, fov_.Checked ? On : Off);
@@ -903,8 +908,8 @@ namespace Destrin_Visual_Tool.Ded.forms
 
         private void button1_Click_2(object sender, EventArgs e)
         {
-     
-           
+
+
         }
 
         private void notificarALaPCToolStripMenuItem_Click(object sender, EventArgs e)
@@ -916,24 +921,23 @@ namespace Destrin_Visual_Tool.Ded.forms
 
         private void Mods_FormClosing(object sender, FormClosingEventArgs e)
         {
-            
-            if (PS3M_API.IsConnected == true)
-            {
-                PS3M_API.DisconnectTarget();
-            }
-
+            Form1 msp = new Form1();
+            msp.Show();
+            /// Ordenes que realizara el programa al cerrarse
+            runtimer_total.Stop();
+            Properties.Settings.Default.Save();
             functions_timer.Stop();
             ntw.Icon = SystemIcons.Information;
             ntw.Text = "Cerrando y desconectando de la consola.";
             ntw.BalloonTipText = "Se desconectó de: " + PS3M_API.Process;
             ntw.BalloonTipTitle = "Cerrando";
             ntw.ShowBalloonTip(1000);
-          //  Environment.Exit(001);
+            //  Environment.Exit(001);
         }
 
         private void richTextBox1_TextChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void button1_Click_3(object sender, EventArgs e)
@@ -943,29 +947,214 @@ namespace Destrin_Visual_Tool.Ded.forms
 
         private void cCVToolStripMenuItem_Click(object sender, EventArgs e)
         {
-        
-            
+
+
 
         }
 
         private void label12_Click(object sender, EventArgs e)
         {
-           
-           /// forms.capturecard_viewer ccv = new forms.capturecard_viewer();
-           /// ccv.Activate();
-          ///  ccv.Show();
-         ///   ccv.BringToFront();
-        ////    forms.Mods md = new forms.Mods();
-      ////     md.Close();
+
+            /// forms.capturecard_viewer ccv = new forms.capturecard_viewer();
+            /// ccv.Activate();
+            ///  ccv.Show();
+            ///   ccv.BringToFront();
+            ////    forms.Mods md = new forms.Mods();
+            ////     md.Close();
 
 
         }
 
         private void kTXMBToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            byte[] Unable = { 0x40 };
-            byte[] Able = { 0x41 };
-            PS3.SetMemory(0x00785DBC, kTXMBToolStripMenuItem.Checked ? Unable : Able);
+            try
+            {
+                byte[] Unable = { 0x40 };
+                byte[] Able = { 0x41 };
+                PS3.SetMemory(0x00785DBC, kTXMBToolStripMenuItem.Checked ? Unable : Able);
+            }
+            catch
+            {
+                Console.WriteLine("No se pudo asignar" + kTXMBToolStripMenuItem.Text);
+            }
+        }
+
+        private void mods_groupbox_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tOOLSEXTRAToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void autosave_timer_Tick(object sender, EventArgs e)
+        {
+            gUARDARPARTIDAToolStripMenuItem.Enabled = true;
+
+            a_Status.Text = "Es necesario guardar partida.";
+
+        }
+
+        private void autosave_byte_timer_Tick(object sender, EventArgs e)
+        {
+
+
+            if (Status_Loader.Value == 50)
+            {
+                Status_Loader.Value = 100;
+                a_Status.Text = "Se guardaron todos los cambios";
+            }
+
+        }
+
+        private void gUARDARPARTIDAToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Status_Loader.Value = 0;
+            Status_Loader.Value = 1;
+            #region Estado
+            {
+                if (Status_Loader.Value == 1)
+                {
+                    label1.Text = "Preparando autoguardado del nivel";
+
+                    a_Status.BackColor = Color.FromArgb(255, 255, 255);
+                    a_Status.ForeColor = Color.Black;
+                }
+                SaveGameTimer_process.Start();
+            }
+            #endregion
+            this.Status_Loader.Value = 50;
+            gUARDARPARTIDAToolStripMenuItem.Enabled = false;
+            ///AutoSave
+            byte[] On = { 0x40 };
+
+            PS3.SetMemory(0x00AEEE54, On);
+
+        }
+
+        private void timer1_Tick_3(object sender, EventArgs e)
+        {
+            byte[] Off = { 0x41 };
+            PS3.SetMemory(0x00AEEE54, Off);
+
+            SaveGameTimer_process.Stop();
+        }
+
+        private void materialCheckbox2_CheckedChanged_1(object sender, EventArgs e)
+        {
+            #region Estado
+            {
+                if (Status_Loader.Value == 1)
+                {
+                    label1.Text = "Inyectando:" + this.materialCheckbox2.Text;
+                }
+
+            }
+            #endregion
+
+            ///NAME OVER HEAD
+            byte[] Checked = { 0x4C };
+            byte[] Unchecked = { 0x2C };
+            PS3.SetMemory(0x00AD8158, materialCheckbox2.Checked ? Checked : Unchecked);
+        }
+
+        private void Mods_HelpButtonClicked(object sender, CancelEventArgs e)
+        {
+
+        }
+
+        private void bttn_text_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void ntw_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void button2_Click_2(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click_3(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Mods_InputLanguageChanged(object sender, InputLanguageChangedEventArgs e)
+        {
+
+        }
+
+        private void Mods_Deactivate(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click_4(object sender, EventArgs e)
+        {
+
+            Timer.Interval = (1000);
+            Timer.Enabled = true;
+            Timer.Start();
+            Timer.Tick += new EventHandler(timer_Tick);
+        }
+
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            string NowHour = DateTime.Now.Hour.ToString() + GetTime();
+            {
+
+                if (sender == Timer)
+                {
+                    runtimer.Text = NowHour;
+                }
+            }
+            string GetTime()
+            {
+                string TimeInString = "";
+                int min = DateTime.Now.Minute;
+                int sec = DateTime.Now.Second;
+
+                TimeInString = ":" + ((min < 10) ? "0" + min.ToString() : min.ToString());
+                TimeInString += ":" + ((sec < 10) ? "0" + sec.ToString() : sec.ToString());
+                return TimeInString;
+            }
+        }
+
+        private void hour_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click_5(object sender, EventArgs e)
+        {
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.Filter = "Log Event Registry File | *.log";
+            if (sfd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                string path = sfd.FileName;
+                BinaryWriter bw = new BinaryWriter(File.Create(path));
+                bw.Write(loc.Text);
+                bw.Dispose();
+            }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+
+        
+
+        }
+
+        private void registroExtendidoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AppRegistry ar = new AppRegistry();
+            ar.ShowDialog();
         }
     }
 }
@@ -976,7 +1165,7 @@ namespace Destrin_Visual_Tool.Ded.forms
 
 
 
-    
+
 
 
 

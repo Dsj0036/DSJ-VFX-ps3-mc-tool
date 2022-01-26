@@ -1,17 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using AForge.Video;
+﻿using AForge.Video;
 using AForge.Video.DirectShow;
-
 using DiscordRPC;
 using DiscordRPC.Logging;
+using System;
+using System.Drawing;
+using System.Windows.Forms;
 
 
 namespace Destrin_Visual_Tool.Ded.forms
@@ -38,7 +31,7 @@ namespace Destrin_Visual_Tool.Ded.forms
             VideoCaptureDevice = new VideoCaptureDevice();
             button1.Hide();
             sdown_button.Enabled = false;
-            
+
 
 
             initalized = true;
@@ -61,7 +54,7 @@ namespace Destrin_Visual_Tool.Ded.forms
 
                     }
                 });
-                }
+            }
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -98,7 +91,7 @@ namespace Destrin_Visual_Tool.Ded.forms
 
         private void toolStripButton1_Click_1(object sender, EventArgs e)
         {
-          
+
             VideoCaptureDevice = new VideoCaptureDevice(filterInfoCollection[toolStripComboBox1.SelectedIndex].MonikerString);
             VideoCaptureDevice.NewFrame += VideoCaptureDevice_NewFrame;
             VideoCaptureDevice.Start();
@@ -110,8 +103,8 @@ namespace Destrin_Visual_Tool.Ded.forms
             this.Text = "Observando: " + toolStripComboBox1.Text;
             this.label3.Text = "Encendido";
             this.label2.Text = "Observando: " + toolStripComboBox1.Text;
-         ///   this.ShowInTaskbar = true;
-         
+            ///   this.ShowInTaskbar = true;
+
             ///this.pic.Size = new System.Drawing.Size(1280, 720);
             ///this.Size = new System.Drawing.Size(1280, 720);
         }
@@ -148,13 +141,13 @@ namespace Destrin_Visual_Tool.Ded.forms
             md.BringToFront();
             md.Activate();
 
-           
+
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             forms.Mods md = new forms.Mods();
-            
+
             md.BringToFront();
             md.Activate();
             md.Focus();

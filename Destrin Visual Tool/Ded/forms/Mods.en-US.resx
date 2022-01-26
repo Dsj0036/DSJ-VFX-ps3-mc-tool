@@ -159,18 +159,17 @@
   <data name="materialCheckbox4.Text" xml:space="preserve">
     <value>H - No Hit Delay</value>
   </data>
-  <data name="materialCheckbox2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>221, 37</value>
-  </data>
-  <data name="materialCheckbox2.Text" xml:space="preserve">
-    <value>H - Autosaving Like Java
-</value>
-  </data>
   <data name="materialCheckbox1.Size" type="System.Drawing.Size, System.Drawing">
     <value>210, 37</value>
   </data>
   <data name="materialCheckbox1.Text" xml:space="preserve">
     <value>H - Keep Current Weather</value>
+  </data>
+  <data name="cONEXIÓNToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>81, 20</value>
+  </data>
+  <data name="cONEXIÓNToolStripMenuItem.Text" xml:space="preserve">
+    <value>Connection</value>
   </data>
   <data name="toolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
     <value>180, 22</value>
@@ -193,11 +192,11 @@
   <data name="desconectarToolStripMenuItem.Text" xml:space="preserve">
     <value>Disconnect</value>
   </data>
-  <data name="cONEXIÓNToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>81, 20</value>
+  <data name="tOOLSEXTRAToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 20</value>
   </data>
-  <data name="cONEXIÓNToolStripMenuItem.Text" xml:space="preserve">
-    <value>Connection</value>
+  <data name="tOOLSEXTRAToolStripMenuItem.Text" xml:space="preserve">
+    <value>Extra Tools</value>
   </data>
   <data name="visorDeCapturadorasToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
     <value>180, 22</value>
@@ -214,6 +213,9 @@
   <data name="notificarALaPCToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>180, 22</value>
   </data>
+  <data name="notificarALaPCToolStripMenuItem.Text" xml:space="preserve">
+    <value>PC Notify</value>
+  </data>
   <data name="personalizarRichToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>180, 22</value>
   </data>
@@ -226,11 +228,11 @@
   <data name="enviarALaConsolaToolStripMenuItem.Text" xml:space="preserve">
     <value>PS3 Sender</value>
   </data>
-  <data name="tOOLSEXTRAToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 20</value>
+  <data name="soporteToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>61, 20</value>
   </data>
-  <data name="tOOLSEXTRAToolStripMenuItem.Text" xml:space="preserve">
-    <value>Extra Tools</value>
+  <data name="soporteToolStripMenuItem.Text" xml:space="preserve">
+    <value>Support</value>
   </data>
   <data name="youTubeToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>180, 22</value>
@@ -238,11 +240,15 @@
   <data name="discordToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>180, 22</value>
   </data>
-  <data name="soporteToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="pREFERENCIASToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>61, 20</value>
   </data>
-  <data name="soporteToolStripMenuItem.Text" xml:space="preserve">
-    <value>Support</value>
+  <data name="pREFERENCIASToolStripMenuItem.Text" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="ajustesToolStripMenuItem.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="ajustesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>180, 22</value>
@@ -250,7 +256,6 @@
   <data name="ajustesToolStripMenuItem.Text" xml:space="preserve">
     <value>Settings...</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="listaDeAcrónimosToolStripMenuItem.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
@@ -266,11 +271,11 @@
   <data name="músicaDeFondoToolStripMenuItem.Text" xml:space="preserve">
     <value>BG Music</value>
   </data>
-  <data name="pREFERENCIASToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>61, 20</value>
+  <data name="gUARDARPARTIDAToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>77, 20</value>
   </data>
-  <data name="pREFERENCIASToolStripMenuItem.Text" xml:space="preserve">
-    <value>Settings</value>
+  <data name="gUARDARPARTIDAToolStripMenuItem.Text" xml:space="preserve">
+    <value>Save Game</value>
   </data>
   <data name="materialCheckbox5.Location" type="System.Drawing.Point, System.Drawing">
     <value>332, 138</value>
@@ -310,14 +315,17 @@
     <value>NH - More particles on TNT
 </value>
   </data>
-  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>613, 347</value>
+  <data name="label9.Size" type="System.Drawing.Size, System.Drawing">
+    <value>22, 13</value>
   </data>
-  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>347, 13</value>
+  <data name="label9.Text" xml:space="preserve">
+    <value>Far</value>
   </data>
-  <data name="label2.Text" xml:space="preserve">
-    <value> Made with love by the nigg Destru, support me by clicking on "Support"</value>
+  <data name="label8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>30, 13</value>
+  </data>
+  <data name="label8.Text" xml:space="preserve">
+    <value>Near</value>
   </data>
   <data name="ntw.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1261,6 +1269,30 @@
         36/iCHX27LpS/4siWam9J5wDy9RNAHJr+YfM30cdCMYiST5PaNCx8U9FmzS93pTTwhz8V35Ef+L8v8g8
         vgj+/H9/eUU53JhjbQAAAABJRU5ErkJggg==
 </value>
+  </data>
+  <data name="label10.Size" type="System.Drawing.Size, System.Drawing">
+    <value>45, 13</value>
+  </data>
+  <data name="label10.Text" xml:space="preserve">
+    <value>Registry</value>
+  </data>
+  <data name="loc.Text" xml:space="preserve">
+    <value>Nothing happened yet.</value>
+  </data>
+  <data name="materialCheckbox2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>210, 37</value>
+  </data>
+  <data name="materialCheckbox2.Text" xml:space="preserve">
+    <value>NH - Name Over Head
+
+</value>
+  </data>
+  <data name="label11.Size" type="System.Drawing.Size, System.Drawing">
+    <value>159, 26</value>
+  </data>
+  <data name="label11.Text" xml:space="preserve">
+    <value>It is not connected to a console.
+Log in to use the modifications.</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

@@ -36,13 +36,19 @@ namespace Destrin_Visual_Tool.Ded.forms
             this.materialCheckbox8 = new MaterialSkin.Controls.MaterialCheckbox();
             this.materialCheckbox3 = new MaterialSkin.Controls.MaterialCheckbox();
             this.materialCheckbox4 = new MaterialSkin.Controls.MaterialCheckbox();
-            this.materialCheckbox2 = new MaterialSkin.Controls.MaterialCheckbox();
             this.materialCheckbox1 = new MaterialSkin.Controls.MaterialCheckbox();
             this.mods_tstrip = new System.Windows.Forms.MenuStrip();
             this.cONEXIÓNToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.revincularToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.desconectarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tOOLSEXTRAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.visorDeCapturadorasToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.notificacionALaConsolaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.notificarALaPCToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.personalizarRichToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.enviarALaConsolaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.soporteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.youTubeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.discordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -50,7 +56,9 @@ namespace Destrin_Visual_Tool.Ded.forms
             this.ajustesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listaDeAcrónimosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.músicaDeFondoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.kTXMBToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gUARDARPARTIDAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Status_Loader = new System.Windows.Forms.ProgressBar();
             this.functions_timer = new System.Windows.Forms.Timer(this.components);
             this.materialCheckbox5 = new MaterialSkin.Controls.MaterialCheckbox();
             this.label1 = new System.Windows.Forms.Label();
@@ -69,33 +77,34 @@ namespace Destrin_Visual_Tool.Ded.forms
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.bttn_text = new System.Windows.Forms.MenuStrip();
-            this.label2 = new System.Windows.Forms.Label();
             this.ntw = new System.Windows.Forms.NotifyIcon(this.components);
             this.con_label = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.loc = new System.Windows.Forms.RichTextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.mods_groupbox = new System.Windows.Forms.GroupBox();
+            this.materialCheckbox2 = new MaterialSkin.Controls.MaterialCheckbox();
             this.mess_box = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.label11 = new System.Windows.Forms.Label();
-            this.kTXMBToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.tOOLSEXTRAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.visorDeCapturadorasToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.notificacionALaConsolaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.notificarALaPCToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.personalizarRichToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.enviarALaConsolaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.autosave_timer = new System.Windows.Forms.Timer(this.components);
+            this.autosave_byte_timer = new System.Windows.Forms.Timer(this.components);
+            this.a_Status = new System.Windows.Forms.Label();
+            this.SaveGameTimer_process = new System.Windows.Forms.Timer(this.components);
+            this.runtimer = new System.Windows.Forms.Label();
+            this.consoleip = new System.Windows.Forms.Label();
+            this.runtimer_total = new System.Windows.Forms.Timer(this.components);
+            this.registroExtendidoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mods_tstrip.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.mods_groupbox.SuspendLayout();
             this.mess_box.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -160,18 +169,6 @@ namespace Destrin_Visual_Tool.Ded.forms
             this.materialCheckbox4.UseVisualStyleBackColor = true;
             this.materialCheckbox4.CheckedChanged += new System.EventHandler(this.materialCheckbox4_CheckedChanged);
             // 
-            // materialCheckbox2
-            // 
-            resources.ApplyResources(this.materialCheckbox2, "materialCheckbox2");
-            this.materialCheckbox2.Depth = 0;
-            this.materialCheckbox2.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.materialCheckbox2.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialCheckbox2.Name = "materialCheckbox2";
-            this.materialCheckbox2.ReadOnly = false;
-            this.materialCheckbox2.Ripple = true;
-            this.materialCheckbox2.UseVisualStyleBackColor = true;
-            this.materialCheckbox2.CheckedChanged += new System.EventHandler(this.materialCheckbox2_CheckedChanged);
-            // 
             // materialCheckbox1
             // 
             resources.ApplyResources(this.materialCheckbox1, "materialCheckbox1");
@@ -186,12 +183,14 @@ namespace Destrin_Visual_Tool.Ded.forms
             // 
             // mods_tstrip
             // 
+            this.mods_tstrip.BackColor = System.Drawing.SystemColors.Control;
             this.mods_tstrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cONEXIÓNToolStripMenuItem,
             this.tOOLSEXTRAToolStripMenuItem,
             this.soporteToolStripMenuItem,
             this.pREFERENCIASToolStripMenuItem,
-            this.kTXMBToolStripMenuItem});
+            this.kTXMBToolStripMenuItem,
+            this.gUARDARPARTIDAToolStripMenuItem});
             resources.ApplyResources(this.mods_tstrip, "mods_tstrip");
             this.mods_tstrip.Name = "mods_tstrip";
             this.mods_tstrip.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
@@ -205,6 +204,13 @@ namespace Destrin_Visual_Tool.Ded.forms
             this.desconectarToolStripMenuItem});
             this.cONEXIÓNToolStripMenuItem.Name = "cONEXIÓNToolStripMenuItem";
             resources.ApplyResources(this.cONEXIÓNToolStripMenuItem, "cONEXIÓNToolStripMenuItem");
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Image = global::Destrin_Visual_Tool.Properties.Resources.ssetting;
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            resources.ApplyResources(this.toolStripMenuItem1, "toolStripMenuItem1");
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // revincularToolStripMenuItem
             // 
@@ -222,6 +228,48 @@ namespace Destrin_Visual_Tool.Ded.forms
             this.desconectarToolStripMenuItem.Name = "desconectarToolStripMenuItem";
             resources.ApplyResources(this.desconectarToolStripMenuItem, "desconectarToolStripMenuItem");
             this.desconectarToolStripMenuItem.Click += new System.EventHandler(this.desconectarToolStripMenuItem_Click);
+            // 
+            // tOOLSEXTRAToolStripMenuItem
+            // 
+            this.tOOLSEXTRAToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.visorDeCapturadorasToolStripMenuItem1,
+            this.notificacionALaConsolaToolStripMenuItem,
+            this.notificarALaPCToolStripMenuItem,
+            this.personalizarRichToolStripMenuItem,
+            this.enviarALaConsolaToolStripMenuItem});
+            this.tOOLSEXTRAToolStripMenuItem.Name = "tOOLSEXTRAToolStripMenuItem";
+            resources.ApplyResources(this.tOOLSEXTRAToolStripMenuItem, "tOOLSEXTRAToolStripMenuItem");
+            this.tOOLSEXTRAToolStripMenuItem.Click += new System.EventHandler(this.tOOLSEXTRAToolStripMenuItem_Click);
+            // 
+            // visorDeCapturadorasToolStripMenuItem1
+            // 
+            this.visorDeCapturadorasToolStripMenuItem1.Name = "visorDeCapturadorasToolStripMenuItem1";
+            resources.ApplyResources(this.visorDeCapturadorasToolStripMenuItem1, "visorDeCapturadorasToolStripMenuItem1");
+            this.visorDeCapturadorasToolStripMenuItem1.Click += new System.EventHandler(this.visorDeCapturadorasToolStripMenuItem1_Click);
+            // 
+            // notificacionALaConsolaToolStripMenuItem
+            // 
+            this.notificacionALaConsolaToolStripMenuItem.Name = "notificacionALaConsolaToolStripMenuItem";
+            resources.ApplyResources(this.notificacionALaConsolaToolStripMenuItem, "notificacionALaConsolaToolStripMenuItem");
+            this.notificacionALaConsolaToolStripMenuItem.Click += new System.EventHandler(this.notificacionALaConsolaToolStripMenuItem_Click);
+            // 
+            // notificarALaPCToolStripMenuItem
+            // 
+            this.notificarALaPCToolStripMenuItem.Name = "notificarALaPCToolStripMenuItem";
+            resources.ApplyResources(this.notificarALaPCToolStripMenuItem, "notificarALaPCToolStripMenuItem");
+            this.notificarALaPCToolStripMenuItem.Click += new System.EventHandler(this.notificarALaPCToolStripMenuItem_Click);
+            // 
+            // personalizarRichToolStripMenuItem
+            // 
+            resources.ApplyResources(this.personalizarRichToolStripMenuItem, "personalizarRichToolStripMenuItem");
+            this.personalizarRichToolStripMenuItem.Name = "personalizarRichToolStripMenuItem";
+            this.personalizarRichToolStripMenuItem.Click += new System.EventHandler(this.personalizarRichToolStripMenuItem_Click);
+            // 
+            // enviarALaConsolaToolStripMenuItem
+            // 
+            this.enviarALaConsolaToolStripMenuItem.Name = "enviarALaConsolaToolStripMenuItem";
+            resources.ApplyResources(this.enviarALaConsolaToolStripMenuItem, "enviarALaConsolaToolStripMenuItem");
+            this.enviarALaConsolaToolStripMenuItem.Click += new System.EventHandler(this.enviarALaConsolaToolStripMenuItem_Click);
             // 
             // soporteToolStripMenuItem
             // 
@@ -249,14 +297,15 @@ namespace Destrin_Visual_Tool.Ded.forms
             this.pREFERENCIASToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ajustesToolStripMenuItem,
             this.listaDeAcrónimosToolStripMenuItem,
-            this.músicaDeFondoToolStripMenuItem});
+            this.músicaDeFondoToolStripMenuItem,
+            this.registroExtendidoToolStripMenuItem});
             this.pREFERENCIASToolStripMenuItem.Name = "pREFERENCIASToolStripMenuItem";
             resources.ApplyResources(this.pREFERENCIASToolStripMenuItem, "pREFERENCIASToolStripMenuItem");
             // 
             // ajustesToolStripMenuItem
             // 
-            resources.ApplyResources(this.ajustesToolStripMenuItem, "ajustesToolStripMenuItem");
             this.ajustesToolStripMenuItem.Name = "ajustesToolStripMenuItem";
+            resources.ApplyResources(this.ajustesToolStripMenuItem, "ajustesToolStripMenuItem");
             this.ajustesToolStripMenuItem.Click += new System.EventHandler(this.ajustesToolStripMenuItem_Click);
             // 
             // listaDeAcrónimosToolStripMenuItem
@@ -271,11 +320,26 @@ namespace Destrin_Visual_Tool.Ded.forms
             resources.ApplyResources(this.músicaDeFondoToolStripMenuItem, "músicaDeFondoToolStripMenuItem");
             this.músicaDeFondoToolStripMenuItem.Click += new System.EventHandler(this.músicaDeFondoToolStripMenuItem_Click);
             // 
-            // progressBar1
+            // kTXMBToolStripMenuItem
             // 
-            resources.ApplyResources(this.progressBar1, "progressBar1");
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Click += new System.EventHandler(this.progressBar1_Click);
+            this.kTXMBToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.kTXMBToolStripMenuItem.Image = global::Destrin_Visual_Tool.Properties.Resources.skinGraphicsInGame_141;
+            this.kTXMBToolStripMenuItem.Name = "kTXMBToolStripMenuItem";
+            resources.ApplyResources(this.kTXMBToolStripMenuItem, "kTXMBToolStripMenuItem");
+            this.kTXMBToolStripMenuItem.Click += new System.EventHandler(this.kTXMBToolStripMenuItem_Click);
+            // 
+            // gUARDARPARTIDAToolStripMenuItem
+            // 
+            this.gUARDARPARTIDAToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            resources.ApplyResources(this.gUARDARPARTIDAToolStripMenuItem, "gUARDARPARTIDAToolStripMenuItem");
+            this.gUARDARPARTIDAToolStripMenuItem.Name = "gUARDARPARTIDAToolStripMenuItem";
+            this.gUARDARPARTIDAToolStripMenuItem.Click += new System.EventHandler(this.gUARDARPARTIDAToolStripMenuItem_Click);
+            // 
+            // Status_Loader
+            // 
+            resources.ApplyResources(this.Status_Loader, "Status_Loader");
+            this.Status_Loader.Name = "Status_Loader";
+            this.Status_Loader.Click += new System.EventHandler(this.progressBar1_Click);
             // 
             // functions_timer
             // 
@@ -420,16 +484,12 @@ namespace Destrin_Visual_Tool.Ded.forms
             this.bttn_text.BackColor = System.Drawing.SystemColors.Window;
             resources.ApplyResources(this.bttn_text, "bttn_text");
             this.bttn_text.Name = "bttn_text";
-            // 
-            // label2
-            // 
-            resources.ApplyResources(this.label2, "label2");
-            this.label2.BackColor = System.Drawing.SystemColors.Window;
-            this.label2.Name = "label2";
+            this.bttn_text.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.bttn_text_ItemClicked);
             // 
             // ntw
             // 
             resources.ApplyResources(this.ntw, "ntw");
+            this.ntw.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.ntw_MouseDoubleClick);
             // 
             // con_label
             // 
@@ -438,13 +498,22 @@ namespace Destrin_Visual_Tool.Ded.forms
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.loc);
             this.groupBox1.Controls.Add(this.con_label);
             this.groupBox1.Controls.Add(this.pictureBox1);
+            this.groupBox1.ForeColor = System.Drawing.SystemColors.InfoText;
             resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.TabStop = false;
+            // 
+            // button2
+            // 
+            resources.ApplyResources(this.button2, "button2");
+            this.button2.Name = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click_5);
             // 
             // label10
             // 
@@ -457,12 +526,19 @@ namespace Destrin_Visual_Tool.Ded.forms
             this.loc.Name = "loc";
             this.loc.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Destrin_Visual_Tool.Properties.Resources.skinGraphicsInGame_141;
+            resources.ApplyResources(this.pictureBox1, "pictureBox1");
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.TabStop = false;
+            // 
             // mods_groupbox
             // 
+            this.mods_groupbox.Controls.Add(this.materialCheckbox2);
             this.mods_groupbox.Controls.Add(this.materialCheckbox10);
             this.mods_groupbox.Controls.Add(this.materialCheckbox11);
             this.mods_groupbox.Controls.Add(this.materialCheckbox1);
-            this.mods_groupbox.Controls.Add(this.materialCheckbox2);
             this.mods_groupbox.Controls.Add(this.materialCheckbox3);
             this.mods_groupbox.Controls.Add(this.materialCheckbox4);
             this.mods_groupbox.Controls.Add(this.materialCheckbox12);
@@ -474,6 +550,19 @@ namespace Destrin_Visual_Tool.Ded.forms
             resources.ApplyResources(this.mods_groupbox, "mods_groupbox");
             this.mods_groupbox.Name = "mods_groupbox";
             this.mods_groupbox.TabStop = false;
+            this.mods_groupbox.Enter += new System.EventHandler(this.mods_groupbox_Enter);
+            // 
+            // materialCheckbox2
+            // 
+            resources.ApplyResources(this.materialCheckbox2, "materialCheckbox2");
+            this.materialCheckbox2.Depth = 0;
+            this.materialCheckbox2.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.materialCheckbox2.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialCheckbox2.Name = "materialCheckbox2";
+            this.materialCheckbox2.ReadOnly = false;
+            this.materialCheckbox2.Ripple = true;
+            this.materialCheckbox2.UseVisualStyleBackColor = true;
+            this.materialCheckbox2.CheckedChanged += new System.EventHandler(this.materialCheckbox2_CheckedChanged_1);
             // 
             // mess_box
             // 
@@ -491,74 +580,6 @@ namespace Destrin_Visual_Tool.Ded.forms
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click_3);
             // 
-            // label11
-            // 
-            resources.ApplyResources(this.label11, "label11");
-            this.label11.Name = "label11";
-            // 
-            // kTXMBToolStripMenuItem
-            // 
-            this.kTXMBToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.kTXMBToolStripMenuItem.Image = global::Destrin_Visual_Tool.Properties.Resources.skinGraphicsInGame_141;
-            this.kTXMBToolStripMenuItem.Name = "kTXMBToolStripMenuItem";
-            resources.ApplyResources(this.kTXMBToolStripMenuItem, "kTXMBToolStripMenuItem");
-            this.kTXMBToolStripMenuItem.Click += new System.EventHandler(this.kTXMBToolStripMenuItem_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Destrin_Visual_Tool.Properties.Resources.skinGraphicsInGame_141;
-            resources.ApplyResources(this.pictureBox1, "pictureBox1");
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.TabStop = false;
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.Image = global::Destrin_Visual_Tool.Properties.Resources.ssetting;
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            resources.ApplyResources(this.toolStripMenuItem1, "toolStripMenuItem1");
-            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
-            // 
-            // tOOLSEXTRAToolStripMenuItem
-            // 
-            this.tOOLSEXTRAToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.visorDeCapturadorasToolStripMenuItem1,
-            this.notificacionALaConsolaToolStripMenuItem,
-            this.notificarALaPCToolStripMenuItem,
-            this.personalizarRichToolStripMenuItem,
-            this.enviarALaConsolaToolStripMenuItem});
-            this.tOOLSEXTRAToolStripMenuItem.Name = "tOOLSEXTRAToolStripMenuItem";
-            resources.ApplyResources(this.tOOLSEXTRAToolStripMenuItem, "tOOLSEXTRAToolStripMenuItem");
-            // 
-            // visorDeCapturadorasToolStripMenuItem1
-            // 
-            this.visorDeCapturadorasToolStripMenuItem1.Name = "visorDeCapturadorasToolStripMenuItem1";
-            resources.ApplyResources(this.visorDeCapturadorasToolStripMenuItem1, "visorDeCapturadorasToolStripMenuItem1");
-            this.visorDeCapturadorasToolStripMenuItem1.Click += new System.EventHandler(this.visorDeCapturadorasToolStripMenuItem1_Click);
-            // 
-            // notificacionALaConsolaToolStripMenuItem
-            // 
-            this.notificacionALaConsolaToolStripMenuItem.Name = "notificacionALaConsolaToolStripMenuItem";
-            resources.ApplyResources(this.notificacionALaConsolaToolStripMenuItem, "notificacionALaConsolaToolStripMenuItem");
-            this.notificacionALaConsolaToolStripMenuItem.Click += new System.EventHandler(this.notificacionALaConsolaToolStripMenuItem_Click);
-            // 
-            // notificarALaPCToolStripMenuItem
-            // 
-            this.notificarALaPCToolStripMenuItem.Name = "notificarALaPCToolStripMenuItem";
-            resources.ApplyResources(this.notificarALaPCToolStripMenuItem, "notificarALaPCToolStripMenuItem");
-            this.notificarALaPCToolStripMenuItem.Click += new System.EventHandler(this.notificarALaPCToolStripMenuItem_Click);
-            // 
-            // personalizarRichToolStripMenuItem
-            // 
-            resources.ApplyResources(this.personalizarRichToolStripMenuItem, "personalizarRichToolStripMenuItem");
-            this.personalizarRichToolStripMenuItem.Name = "personalizarRichToolStripMenuItem";
-            this.personalizarRichToolStripMenuItem.Click += new System.EventHandler(this.personalizarRichToolStripMenuItem_Click);
-            // 
-            // enviarALaConsolaToolStripMenuItem
-            // 
-            this.enviarALaConsolaToolStripMenuItem.Name = "enviarALaConsolaToolStripMenuItem";
-            resources.ApplyResources(this.enviarALaConsolaToolStripMenuItem, "enviarALaConsolaToolStripMenuItem");
-            this.enviarALaConsolaToolStripMenuItem.Click += new System.EventHandler(this.enviarALaConsolaToolStripMenuItem_Click);
-            // 
             // pictureBox2
             // 
             this.pictureBox2.Image = global::Destrin_Visual_Tool.Properties.Resources.skinGraphicsInGame_141;
@@ -566,27 +587,77 @@ namespace Destrin_Visual_Tool.Ded.forms
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.TabStop = false;
             // 
+            // label11
+            // 
+            resources.ApplyResources(this.label11, "label11");
+            this.label11.Name = "label11";
+            // 
+            // autosave_timer
+            // 
+            this.autosave_timer.Interval = 300000;
+            this.autosave_timer.Tick += new System.EventHandler(this.autosave_timer_Tick);
+            // 
+            // autosave_byte_timer
+            // 
+            this.autosave_byte_timer.Interval = 1000;
+            this.autosave_byte_timer.Tick += new System.EventHandler(this.autosave_byte_timer_Tick);
+            // 
+            // a_Status
+            // 
+            resources.ApplyResources(this.a_Status, "a_Status");
+            this.a_Status.Name = "a_Status";
+            // 
+            // SaveGameTimer_process
+            // 
+            this.SaveGameTimer_process.Tick += new System.EventHandler(this.timer1_Tick_3);
+            // 
+            // runtimer
+            // 
+            resources.ApplyResources(this.runtimer, "runtimer");
+            this.runtimer.Name = "runtimer";
+            // 
+            // consoleip
+            // 
+            resources.ApplyResources(this.consoleip, "consoleip");
+            this.consoleip.BackColor = System.Drawing.Color.White;
+            this.consoleip.Name = "consoleip";
+            // 
+            // runtimer_total
+            // 
+            this.runtimer_total.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // registroExtendidoToolStripMenuItem
+            // 
+            this.registroExtendidoToolStripMenuItem.Name = "registroExtendidoToolStripMenuItem";
+            resources.ApplyResources(this.registroExtendidoToolStripMenuItem, "registroExtendidoToolStripMenuItem");
+            this.registroExtendidoToolStripMenuItem.Click += new System.EventHandler(this.registroExtendidoToolStripMenuItem_Click);
+            // 
             // Mods
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Menu;
+            this.Controls.Add(this.consoleip);
+            this.Controls.Add(this.runtimer);
+            this.Controls.Add(this.mods_groupbox);
+            this.Controls.Add(this.a_Status);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.progressBar1);
+            this.Controls.Add(this.Status_Loader);
             this.Controls.Add(this.mods_tstrip);
             this.Controls.Add(this.bttn_text);
-            this.Controls.Add(this.mods_groupbox);
             this.Controls.Add(this.mess_box);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MainMenuStrip = this.mods_tstrip;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Mods";
+            this.HelpButtonClicked += new System.ComponentModel.CancelEventHandler(this.Mods_HelpButtonClicked);
+            this.Deactivate += new System.EventHandler(this.Mods_Deactivate);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Mods_FormClosing);
-            this.Load += new System.EventHandler(this.Mods_Load);
+            this.Load += new System.EventHandler(this.Mods_Load_1);
+            this.InputLanguageChanged += new System.Windows.Forms.InputLanguageChangedEventHandler(this.Mods_InputLanguageChanged);
             this.mods_tstrip.ResumeLayout(false);
             this.mods_tstrip.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -594,11 +665,11 @@ namespace Destrin_Visual_Tool.Ded.forms
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.mods_groupbox.ResumeLayout(false);
             this.mods_groupbox.PerformLayout();
             this.mess_box.ResumeLayout(false);
             this.mess_box.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -610,7 +681,6 @@ namespace Destrin_Visual_Tool.Ded.forms
         private MaterialSkin.Controls.MaterialCheckbox materialCheckbox8;
         private MaterialSkin.Controls.MaterialCheckbox materialCheckbox3;
         private MaterialSkin.Controls.MaterialCheckbox materialCheckbox4;
-        private MaterialSkin.Controls.MaterialCheckbox materialCheckbox2;
         private MaterialSkin.Controls.MaterialCheckbox materialCheckbox1;
         private System.Windows.Forms.MenuStrip mods_tstrip;
         private System.Windows.Forms.ToolStripMenuItem cONEXIÓNToolStripMenuItem;
@@ -622,7 +692,7 @@ namespace Destrin_Visual_Tool.Ded.forms
         private System.Windows.Forms.ToolStripMenuItem soporteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem youTubeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem discordToolStripMenuItem;
-        private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.ProgressBar Status_Loader;
         private System.Windows.Forms.ToolStripMenuItem pREFERENCIASToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ajustesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem listaDeAcrónimosToolStripMenuItem;
@@ -640,7 +710,6 @@ namespace Destrin_Visual_Tool.Ded.forms
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.MenuStrip bttn_text;
         private System.Windows.Forms.ToolStripMenuItem personalizarRichToolStripMenuItem;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ToolStripMenuItem enviarALaConsolaToolStripMenuItem;
         private System.Windows.Forms.TrackBar trackBar1;
         private System.Windows.Forms.Label label3;
@@ -664,5 +733,16 @@ namespace Destrin_Visual_Tool.Ded.forms
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ToolStripMenuItem kTXMBToolStripMenuItem;
+        private System.Windows.Forms.Timer autosave_timer;
+        private System.Windows.Forms.Timer autosave_byte_timer;
+        private System.Windows.Forms.Label a_Status;
+        private System.Windows.Forms.ToolStripMenuItem gUARDARPARTIDAToolStripMenuItem;
+        private MaterialSkin.Controls.MaterialCheckbox materialCheckbox2;
+        private System.Windows.Forms.Timer SaveGameTimer_process;
+        private System.Windows.Forms.Label runtimer;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label consoleip;
+        private System.Windows.Forms.Timer runtimer_total;
+        private System.Windows.Forms.ToolStripMenuItem registroExtendidoToolStripMenuItem;
     }
 }

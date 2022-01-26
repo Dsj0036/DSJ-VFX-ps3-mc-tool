@@ -1,14 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using PS3Lib;
+using System;
 using System.Windows.Forms;
-using PS3ManagerAPI;
-using PS3Lib;
 
 namespace Destrin_Visual_Tool.Ded.forms
 {
@@ -33,9 +25,9 @@ namespace Destrin_Visual_Tool.Ded.forms
                 PS3M_API.DisconnectTarget();
             }
             /// PS3 SUCCESFULLY CONNECTED AND ATTACHED MESSAGES.
-           /// PS3M_API.PS3.Notify("DED Edition Visual Mod TOOL connected succesfully");
-           /// PS3M_API.PS3.Notify("VERSION: 5.5");
-           /// PS3M_API.PS3.Notify("Attached to process");
+            /// PS3M_API.PS3.Notify("DED Edition Visual Mod TOOL connected succesfully");
+            /// PS3M_API.PS3.Notify("VERSION: 5.5");
+            /// PS3M_API.PS3.Notify("Attached to process");
             ///
 
             ///PC SUCCESFULLY CONNECTED AND ATTACHED MESSAGES.
@@ -43,7 +35,7 @@ namespace Destrin_Visual_Tool.Ded.forms
             MessageBox.Show("Se vinculó correctamente.", ProcessList.Text);
             DialogResult = DialogResult.OK;
             modspage.ShowDialog();
-            
+
 
         }
 
@@ -74,9 +66,9 @@ namespace Destrin_Visual_Tool.Ded.forms
         {
             DialogResult = DialogResult.Abort;
 
-           /// bait
-           ///Form1 Main = new Form1();
-           ///Main.ShowDialog();
+            /// bait
+            ///Form1 Main = new Form1();
+            ///Main.ShowDialog();
         }
 
         private void button1_Click(object sender, EventArgs e)

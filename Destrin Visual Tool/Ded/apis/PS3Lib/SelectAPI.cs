@@ -6,10 +6,10 @@
 
 namespace PS3Lib
 {
-  public enum SelectAPI
-  {
-    ControlConsole,
-    TargetManager,
-    PS3Manager,
-  }
+    public enum SelectAPI
+    {
+        ControlConsole,
+        TargetManager,
+        PS3Manager,
+    }
 }

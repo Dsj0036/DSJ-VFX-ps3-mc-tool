@@ -1,14 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using PS3Lib;
+using System;
 using System.Windows.Forms;
-using PS3Lib;
-using PS3ManagerAPI;
 
 namespace Destrin_Visual_Tool.Ded.forms
 {
@@ -28,12 +20,12 @@ namespace Destrin_Visual_Tool.Ded.forms
 
         private void ps3message_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-           this.FormBorderStyle = FormBorderStyle.FixedDialog;
+            this.FormBorderStyle = FormBorderStyle.FixedDialog;
             this.MinimizeBox = true;
         }
 

@@ -6,9 +6,9 @@
 
 namespace PS3Lib
 {
-  public enum EndianType
-  {
-    LittleEndian,
-    BigEndian,
-  }
+    public enum EndianType
+    {
+        LittleEndian,
+        BigEndian,
+    }
 }

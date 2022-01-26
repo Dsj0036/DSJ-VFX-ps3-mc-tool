@@ -1,15 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using PS3Lib;
+using System;
 using System.Windows.Forms;
-using MetroFramework;
-using PS3ManagerAPI;
-using PS3Lib;
 
 
 namespace DED_RTM_VER._2._0_restored
@@ -55,7 +46,7 @@ namespace DED_RTM_VER._2._0_restored
             connection.ShowDialog();
         }
 
-        
+
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
         }
@@ -286,7 +277,7 @@ namespace DED_RTM_VER._2._0_restored
 
         private void button7_Click(object sender, EventArgs e)
         {
-         
+
         }
 
         private void panel7_Paint(object sender, PaintEventArgs e)
@@ -297,17 +288,17 @@ namespace DED_RTM_VER._2._0_restored
 
         private void button10_Click(object sender, EventArgs e)
         {
-     
+
         }
 
         private void button8_Click(object sender, EventArgs e)
         {
-         
+
         }
 
         private void button9_Click(object sender, EventArgs e)
         {
-          
+
         }
 
         private void button11_Click(object sender, EventArgs e)
@@ -318,12 +309,12 @@ namespace DED_RTM_VER._2._0_restored
         private void button12_Click(object sender, EventArgs e)
         {
 
-          
+
         }
 
         private void button13_Click(object sender, EventArgs e)
         {
-        
+
         }
 
         private void checkBox1_CheckedChanged_2(object sender, EventArgs e)
@@ -357,7 +348,7 @@ namespace DED_RTM_VER._2._0_restored
 
         private void checkBox6_CheckedChanged_1(object sender, EventArgs e)
         {
-          
+
 
         }
 
@@ -421,13 +412,13 @@ namespace DED_RTM_VER._2._0_restored
         {
             AdditionalForms.AttachToProcessConfirmForm ReconnectForm = new AdditionalForms.AttachToProcessConfirmForm();
             ReconnectForm.ShowDialog();
-            
+
         }
 
         private void button2_Click_1(object sender, EventArgs e)
         {
             PS3M_API.DisconnectTarget();
-            
+
         }
 
         private void label22_Click(object sender, EventArgs e)
@@ -457,7 +448,7 @@ namespace DED_RTM_VER._2._0_restored
 
         private void materialSlider1_Click(object sender, EventArgs e)
         {
-             
+
         }
 
 

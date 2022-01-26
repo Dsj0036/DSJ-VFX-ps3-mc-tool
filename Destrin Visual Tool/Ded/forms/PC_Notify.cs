@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Destrin_Visual_Tool.Ded.forms
@@ -70,7 +64,7 @@ namespace Destrin_Visual_Tool.Ded.forms
 
         private void verifier_Tick(object sender, EventArgs e)
         {
-            
+
             button1.Enabled = true;
 
             if (text.Text == "")

@@ -44,6 +44,15 @@
   <PropertyGroup>
     <ApplicationIcon>rich1.ico</ApplicationIcon>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release 2.0|AnyCPU'">
+    <OutputPath>bin\Release 2.0\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Snap 2.5|AnyCPU'">
+    <OutputPath>bin\Snap 2.5\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release 3.0|AnyCPU'">
+    <OutputPath>bin\Release 3.0\</OutputPath>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="AForge, Version=2.2.5.0, Culture=neutral, PublicKeyToken=c1db6ff4eaa06aeb, processorArchitecture=MSIL">
       <HintPath>..\packages\AForge.2.2.5\lib\AForge.dll</HintPath>
@@ -143,11 +152,23 @@
     <Compile Include="Ded\debug\Debug_Connection_Test.Designer.cs">
       <DependentUpon>Debug_Connection_Test.cs</DependentUpon>
     </Compile>
+    <Compile Include="Ded\debug\Debug_WebReader.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ded\debug\Debug_WebReader.Designer.cs">
+      <DependentUpon>Debug_WebReader.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ded\forms\acc.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Ded\forms\acc.Designer.cs">
       <DependentUpon>acc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ded\forms\AppRegistry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ded\forms\AppRegistry.Designer.cs">
+      <DependentUpon>AppRegistry.cs</DependentUpon>
     </Compile>
     <Compile Include="Ded\forms\att_process_dialog.cs">
       <SubType>Form</SubType>
@@ -197,12 +218,6 @@
     <Compile Include="Ded\forms\ps3message.Designer.cs">
       <DependentUpon>ps3message.cs</DependentUpon>
     </Compile>
-    <Compile Include="Ded\forms\settings.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Ded\forms\settings.Designer.cs">
-      <DependentUpon>settings.cs</DependentUpon>
-    </Compile>
     <Compile Include="Ded\oldver\Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -229,8 +244,14 @@
     <EmbeddedResource Include="Ded\debug\Debug_Connection_Test.resx">
       <DependentUpon>Debug_Connection_Test.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Ded\debug\Debug_WebReader.resx">
+      <DependentUpon>Debug_WebReader.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Ded\forms\acc.resx">
       <DependentUpon>acc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ded\forms\AppRegistry.resx">
+      <DependentUpon>AppRegistry.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ded\forms\att_process_dialog.en-US.resx">
       <DependentUpon>att_process_dialog.cs</DependentUpon>
@@ -246,6 +267,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ded\forms\MatchRich.resx">
       <DependentUpon>MatchRich.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ded\forms\Mods.en-150.resx">
+      <DependentUpon>Mods.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ded\forms\Mods.en-US.resx">
       <DependentUpon>Mods.cs</DependentUpon>
@@ -274,9 +298,6 @@
     <EmbeddedResource Include="Ded\forms\ps3message.resx">
       <DependentUpon>ps3message.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Ded\forms\settings.resx">
-      <DependentUpon>settings.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Ded\oldver\Main.resx" />
     <EmbeddedResource Include="MainSplash.en-US.resx">
       <DependentUpon>MainSplash.cs</DependentUpon>
@@ -295,7 +316,7 @@
     <None Include="mus\The Eyes Of Truth.mus" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
+      <Generator>PublicSettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <Compile Include="Properties\Resources.Designer.cs">

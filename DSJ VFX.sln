@@ -10,7 +10,10 @@ Global
 		Debug|Any CPU = Debug|Any CPU
 		Release 1.0|Any CPU = Release 1.0|Any CPU
 		Release 1.5|Any CPU = Release 1.5|Any CPU
+		Release 2.0|Any CPU = Release 2.0|Any CPU
+		Release 3.0|Any CPU = Release 3.0|Any CPU
 		Release|Any CPU = Release|Any CPU
+		Snap 2.5|Any CPU = Snap 2.5|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{3A628C52-65DA-4430-804B-8097C12F5AF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -19,8 +22,14 @@ Global
 		{3A628C52-65DA-4430-804B-8097C12F5AF3}.Release 1.0|Any CPU.Build.0 = Release 1.0|Any CPU
 		{3A628C52-65DA-4430-804B-8097C12F5AF3}.Release 1.5|Any CPU.ActiveCfg = Release 1.5|Any CPU
 		{3A628C52-65DA-4430-804B-8097C12F5AF3}.Release 1.5|Any CPU.Build.0 = Release 1.5|Any CPU
+		{3A628C52-65DA-4430-804B-8097C12F5AF3}.Release 2.0|Any CPU.ActiveCfg = Release 2.0|Any CPU
+		{3A628C52-65DA-4430-804B-8097C12F5AF3}.Release 2.0|Any CPU.Build.0 = Release 2.0|Any CPU
+		{3A628C52-65DA-4430-804B-8097C12F5AF3}.Release 3.0|Any CPU.ActiveCfg = Release 3.0|Any CPU
+		{3A628C52-65DA-4430-804B-8097C12F5AF3}.Release 3.0|Any CPU.Build.0 = Release 3.0|Any CPU
 		{3A628C52-65DA-4430-804B-8097C12F5AF3}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{3A628C52-65DA-4430-804B-8097C12F5AF3}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{3A628C52-65DA-4430-804B-8097C12F5AF3}.Snap 2.5|Any CPU.ActiveCfg = Snap 2.5|Any CPU
+		{3A628C52-65DA-4430-804B-8097C12F5AF3}.Snap 2.5|Any CPU.Build.0 = Snap 2.5|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
